@@ -64,6 +64,8 @@
 // export default UserDashboard;
 
 import React from "react";
+import MoodChart from '../components/MoodChart';
+
 import {
   FaSmile,
   FaChartLine,
@@ -133,6 +135,7 @@ const UserDashboard = () => {
             <p className="text-2xl font-bold text-[#007189]">{moodStats.mood}</p>
             <p className="text-sm text-gray-400 mt-1">Trend: {moodStats.trend}</p>
           </div>
+          <MoodChart />
 
           <div className="bg-white rounded-xl p-5 shadow">
             <h3 className="text-gray-500 mb-1 text-sm">AI Insight</h3>

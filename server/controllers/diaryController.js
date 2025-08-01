@@ -1,12 +1,40 @@
 import diaryModel from '../models/diaryModel.js';
+import { analyzeSentiment } from '../services/openaiService.js';
+
 
 // Create new diary entry
+
 const createDiary = async (req, res) => {
   try {
-    const { title, entry, mood } = req.body;
+    const { title, entry, mood , recommendations } = req.body;
     const userId = req.user.userId;
 
-    const newEntry = new diaryModel({ userId, title, entry, mood });
+    // Analyze the entry text
+    const aiResult = await analyzeSentiment(entry);
+
+    let sentimentScore = null;
+    let aiMood = mood;
+
+    if (aiResult) {
+      // Try parsing the AI response, example expected: "Mood: Anxious, Score: -0.6"
+      const match = aiResult.match(/Mood:\s*(.+?),\s*Score:\s*(-?\d+(\.\d+)?)/i);
+      if (match) {
+        aiMood = match[1].trim();
+        sentimentScore = parseFloat(match[2]);
+      }
+      console.log("AI Response:", aiResult);
+
+    }
+
+    const newEntry = new diaryModel({
+      userId,
+      title,
+      entry,
+      mood: aiMood,
+      sentimentScore,
+      recommendations, // 👈 from AI
+    });
+
     await newEntry.save();
 
     res.json({ success: true, message: 'Diary entry created', entry: newEntry });
@@ -14,6 +42,7 @@ const createDiary = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
+
 
 
 // Get all entries for logged-in user

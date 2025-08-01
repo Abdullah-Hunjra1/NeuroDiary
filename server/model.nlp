@@ -1,0 +1,327 @@
+{
+  "settings": {
+    "languages": [
+      "en"
+    ],
+    "forceNER": true,
+    "tag": "nlp",
+    "threshold": 0.5,
+    "autoLoad": true,
+    "autoSave": true,
+    "modelFileName": "model.nlp",
+    "executeActionsBeforeAnswers": false,
+    "calculateSentiment": true
+  },
+  "nluManager": {
+    "settings": {
+      "tag": "nlu-manager"
+    },
+    "locales": [
+      "en"
+    ],
+    "languageNames": {},
+    "domainManagers": {
+      "en": {
+        "settings": {
+          "locale": "en",
+          "trainByDomain": false,
+          "tag": "domain-manager-en",
+          "nluByDomain": {
+            "default": {
+              "className": "NeuralNlu",
+              "settings": {}
+            }
+          },
+          "useStemDict": true
+        },
+        "stemDict": {
+          "a,creat,diari,new": {
+            "intent": "create.diary",
+            "domain": "default"
+          },
+          "diari,write": {
+            "intent": "create.diary",
+            "domain": "default"
+          },
+          "entri,last,my,show": {
+            "intent": "read.last",
+            "domain": "default"
+          },
+          "last,mood,my,was,week,what": {
+            "intent": "mood.summary",
+            "domain": "default"
+          }
+        },
+        "intentDict": {
+          "create.diary": "default",
+          "read.last": "default",
+          "mood.summary": "default"
+        },
+        "sentences": [
+          {
+            "domain": "default",
+            "utterance": "create a new diary",
+            "intent": "create.diary"
+          },
+          {
+            "domain": "default",
+            "utterance": "write diary",
+            "intent": "create.diary"
+          },
+          {
+            "domain": "default",
+            "utterance": "show my last entry",
+            "intent": "read.last"
+          },
+          {
+            "domain": "default",
+            "utterance": "what was my mood last week",
+            "intent": "mood.summary"
+          }
+        ],
+        "domains": {
+          "master_domain": {
+            "settings": {
+              "locale": "en",
+              "tag": "nlu-en",
+              "keepStopwords": true,
+              "nonefeatureValue": 1,
+              "nonedeltaMultiplier": 1.2,
+              "spellCheck": false,
+              "spellCheckDistance": 1,
+              "filterZeros": true,
+              "log": true
+            },
+            "features": {
+              "creat": 1,
+              "a": 1,
+              "new": 1,
+              "diari": 1,
+              "write": 1,
+              "show": 1,
+              "my": 1,
+              "last": 1,
+              "entri": 1,
+              "what": 1,
+              "was": 1,
+              "mood": 1,
+              "week": 1
+            },
+            "intents": {
+              "create.diary": 1,
+              "read.last": 1,
+              "mood.summary": 1
+            },
+            "intentFeatures": {
+              "create.diary": {
+                "creat": 1,
+                "a": 1,
+                "new": 1,
+                "diari": 1,
+                "write": 1
+              },
+              "read.last": {
+                "show": 1,
+                "my": 1,
+                "last": 1,
+                "entri": 1
+              },
+              "mood.summary": {
+                "what": 1,
+                "was": 1,
+                "my": 1,
+                "mood": 1,
+                "last": 1,
+                "week": 1
+              }
+            },
+            "featuresToIntent": {
+              "creat": [
+                "create.diary"
+              ],
+              "a": [
+                "create.diary"
+              ],
+              "new": [
+                "create.diary"
+              ],
+              "diari": [
+                "create.diary"
+              ],
+              "write": [
+                "create.diary"
+              ],
+              "show": [
+                "read.last"
+              ],
+              "my": [
+                "read.last",
+                "mood.summary"
+              ],
+              "last": [
+                "read.last",
+                "mood.summary"
+              ],
+              "entri": [
+                "read.last"
+              ],
+              "what": [
+                "mood.summary"
+              ],
+              "was": [
+                "mood.summary"
+              ],
+              "mood": [
+                "mood.summary"
+              ],
+              "week": [
+                "mood.summary"
+              ]
+            },
+            "neuralNetwork": {
+              "settings": {
+                "locale": "en",
+                "tag": "nlu-en",
+                "keepStopwords": true,
+                "nonefeatureValue": 1,
+                "nonedeltaMultiplier": 1.2,
+                "spellCheck": false,
+                "spellCheckDistance": 1,
+                "filterZeros": true,
+                "log": true
+              },
+              "features": [
+                "creat",
+                "a",
+                "new",
+                "diari",
+                "write",
+                "show",
+                "my",
+                "last",
+                "entri",
+                "what",
+                "was",
+                "mood",
+                "week"
+              ],
+              "intents": [
+                "create.diary",
+                "read.last",
+                "mood.summary"
+              ],
+              "perceptrons": [
+                [
+                  1.710065484046936,
+                  1.710065484046936,
+                  1.710065484046936,
+                  6.466856479644775,
+                  4.754664897918701,
+                  -0.5386979579925537,
+                  -0.8615909218788147,
+                  -0.8615909218788147,
+                  -0.5386979579925537,
+                  -0.2990042567253113,
+                  -0.2990042567253113,
+                  -0.2990042567253113,
+                  -0.2990042567253113,
+                  2.8091811962269015
+                ],
+                [
+                  -0.1850939393043518,
+                  -0.1850939393043518,
+                  -0.1850939393043518,
+                  -0.5814988017082214,
+                  -0.38122230768203735,
+                  4.107904434204102,
+                  2.5525882244110107,
+                  2.5525882244110107,
+                  4.107904434204102,
+                  -1.528070330619812,
+                  -1.528070330619812,
+                  -1.528070330619812,
+                  -1.528070330619812,
+                  0.9825492546932477
+                ],
+                [
+                  -0.14510191977024078,
+                  -0.14510191977024078,
+                  -0.14510191977024078,
+                  -0.37104377150535583,
+                  -0.19483333826065063,
+                  -1.5195157527923584,
+                  1.275048851966858,
+                  1.275048851966858,
+                  -1.5195157527923584,
+                  2.822406053543091,
+                  2.822406053543091,
+                  2.822406053543091,
+                  2.822406053543091,
+                  0.444968505752655
+                ]
+              ]
+            }
+          }
+        }
+      }
+    },
+    "intentDomains": {},
+    "extraSentences": [
+      [
+        "en",
+        "create a new diary"
+      ],
+      [
+        "en",
+        "write diary"
+      ],
+      [
+        "en",
+        "show my last entry"
+      ],
+      [
+        "en",
+        "what was my mood last week"
+      ]
+    ]
+  },
+  "ner": {
+    "settings": {
+      "tag": "ner",
+      "entityPreffix": "%",
+      "entitySuffix": "%"
+    },
+    "rules": {}
+  },
+  "nlgManager": {
+    "settings": {
+      "tag": "nlg-manager"
+    },
+    "responses": {
+      "en": {
+        "create.diary": [
+          {
+            "answer": "Sure! What would you like to write today?"
+          }
+        ],
+        "read.last": [
+          {
+            "answer": "Fetching your most recent diary entry..."
+          }
+        ],
+        "mood.summary": [
+          {
+            "answer": "Analyzing your recent moods..."
+          }
+        ]
+      }
+    }
+  },
+  "actionManager": {
+    "settings": {
+      "tag": "action-manager"
+    },
+    "actions": {}
+  },
+  "slotManager": {}
+}

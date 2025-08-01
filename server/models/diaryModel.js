@@ -20,6 +20,11 @@ const diarySchema = new mongoose.Schema({
   sentimentScore: {
     type: Number, // e.g., result from AI sentiment analysis
   },
+  recommendations: {
+  writingPrompt: String,
+  activity: String,
+  message: String,
+ },
   createdAt: {
     type: Date,
     default: Date.now,

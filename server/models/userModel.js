@@ -34,6 +34,11 @@ const userSchema = new mongoose.Schema({
         type:String,
         default:"000000000"
     },
+    isAdmin: {
+        type: Boolean,
+        default: false,
+   },
+
 })
 
 const userModel = mongoose.models.user || mongoose.model('user',userSchema)
