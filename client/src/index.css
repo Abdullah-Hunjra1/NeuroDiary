@@ -9,16 +9,14 @@
 
 /* Login Page */
 
-
 .input-style {
-    @apply w-full px-4 py-2 rounded-md text-sm bg-gray-100 mb-2 focus:outline-none focus:ring-2 focus:ring-[#007189] ;
+    @apply w-full px-4 py-2 rounded-md text-sm bg-gray-100 mb-2 focus:outline-none focus:ring-2 focus:ring-indigo-500 ;
   }
   
   .btn-primary {
-    @apply bg-[#007189] text-white uppercase px-6 py-2 rounded-md text-sm font-semibold tracking-wider  hover:bg-white hover:text-[#007189] transition hover:border-2 border-[#007189] ;
+    @apply bg-gradient-to-r from-indigo-500 to-purple-600 text-white uppercase px-6 py-2 rounded-md text-sm font-semibold tracking-wider hover:from-indigo-600 hover:to-purple-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105 border-2 border-transparent;
   }
   
   .btn-outline {
-    @apply border border-white text-white uppercase px-6 py-2 rounded-md text-sm font-semibold tracking-wider hover:bg-white hover:text-[#007189] transition;
+    @apply border border-white text-white uppercase px-6 py-2 rounded-md text-sm font-semibold tracking-wider hover:bg-white hover:text-indigo-600 transition;
   }
-  

@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const diarySchema = new mongoose.Schema({
+const diarySchema = new mongoose.Schema({ 
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     required: true,

@@ -1,3 +1,0 @@
-
-
-// Displays Stripe payment records

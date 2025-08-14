@@ -2,9 +2,6 @@ import Stripe from 'stripe';
 import paymentModel from '../models/paymentModel.js';
 import userModel from '../models/userModel.js';
 
-// import {loadStripe} from '@stripe/stripe-js';
-
-
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const createSubscription = async (req, res) => {
@@ -13,6 +10,9 @@ const createSubscription = async (req, res) => {
     const userId = req.user.userId;
 
     const user = await userModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ success: false, message: "User not found" });
+    }
 
     // 1. Create Stripe Customer
     const customer = await stripe.customers.create({
@@ -25,7 +25,6 @@ const createSubscription = async (req, res) => {
       ? process.env.STRIPE_ANNUAL_PRICE_ID
       : process.env.STRIPE_MONTHLY_PRICE_ID;
 
-
     const subscription = await stripe.subscriptions.create({
       customer: customer.id,
       items: [{ price: priceId }],
@@ -33,7 +32,7 @@ const createSubscription = async (req, res) => {
       expand: ['latest_invoice.payment_intent'],
     });
 
-    // 3. Save to DB
+    // 3. Save Payment Info to DB
     const payment = new paymentModel({
       userId,
       stripeCustomerId: customer.id,
@@ -45,19 +44,20 @@ const createSubscription = async (req, res) => {
 
     await payment.save();
 
-    // 4. Return client secret to complete payment
+    // 4. Mark user as premium
+    await userModel.findByIdAndUpdate(userId, { isPremium: true });
+
+    // 5. Return client secret
     const clientSecret = subscription.latest_invoice.payment_intent.client_secret;
 
     res.json({ success: true, clientSecret });
   } catch (error) {
     console.error(error);
-    res.json({ success: false, message: error.message });
+    res.status(500).json({ success: false, message: error.message });
   }
 };
 
-
 export { createSubscription };
-
 
 
 

@@ -1,11 +1,86 @@
 
+// import diaryModel from '../models/diaryModel.js';
+// import mongoose from 'mongoose';
+
+// // Basic mood frequency
+// export const getMoodStats = async (req, res) => {
+//   try {
+//     const userId = req.user.userId;
+
+//     const result = await diaryModel.aggregate([
+//       { $match: { userId: new mongoose.Types.ObjectId(userId) } },
+//       { $group: { _id: '$mood', count: { $sum: 1 } } },
+//     ]);
+
+//     const moodStats = {};
+//     result.forEach((item) => {
+//       if (item._id) moodStats[item._id] = item.count;
+//     });
+//     res.json({ success: true, moodStats });
+//   } catch (error) {
+//     console.error('Mood Stats Error:', error);
+//     res.status(500).json({ success: false, message: 'Failed to retrieve mood stats' });
+//   }
+// };
+
+
+// // Mood trend over time (grouped by day)
+// export const getMoodTimeline = async (req, res) => {
+//   try {
+//     const userId = req.user._id;
+
+//     // Fetch only mood + date fields
+//     const diaries = await diaryModel.find(
+//       { userId },
+//       { mood: 1, createdAt: 1 }
+//     );
+
+//     const timeline = {};
+
+//     diaries.forEach((entry) => {
+//       const date = entry.createdAt.toISOString().split("T")[0];
+
+//       if (!timeline[date]) {
+//         timeline[date] = {
+//           Happy: 0,
+//           Sad: 0,
+//           Neutral: 0,
+//           Stressed: 0,
+//           Calm: 0,
+//           Angry: 0,
+//           Excited: 0,
+//           Grateful: 0,
+//           Anxious: 0,
+//           Positive: 0,
+//         };
+//       }
+
+//       const mood = entry.mood?.trim();
+//       if (timeline[date][mood] !== undefined) {
+//         timeline[date][mood] += 1;
+//       }
+//     });
+
+//     console.log("Raw timeline from backend:", timeline);
+//     res.json(timeline);
+//   } catch (error) {
+//     console.error("Timeline Stats Error:", error);
+//     res.status(500).json({ message: "Error fetching timeline stats" });
+//   }
+// };
+
+
+
+
+
 import diaryModel from '../models/diaryModel.js';
 import mongoose from 'mongoose';
 
-// Basic mood frequency
+// Basic mood frequency (Pie chart)
 export const getMoodStats = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user?.userId || req.user?._id;
+    if (!userId) return res.status(400).json({ success: false, message: 'No user id' });
 
     const result = await diaryModel.aggregate([
       { $match: { userId: new mongoose.Types.ObjectId(userId) } },
@@ -16,42 +91,65 @@ export const getMoodStats = async (req, res) => {
     result.forEach((item) => {
       if (item._id) moodStats[item._id] = item.count;
     });
-
-    res.json({ success: true, moodStats });
+    return res.json({ success: true, moodStats });
   } catch (error) {
     console.error('Mood Stats Error:', error);
-    res.status(500).json({ success: false, message: 'Failed to retrieve mood stats' });
+    return res.status(500).json({ success: false, message: 'Failed to retrieve mood stats' });
   }
 };
 
-// Mood trend over time (grouped by day)
+
+// Mood trend over time (grouped by day) -> normalized and returned as { success:true, timeline }
 export const getMoodTimeline = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user?.userId || req.user?._id;
+    if (!userId) return res.status(400).json({ success: false, message: 'No user id' });
 
-    const result = await diaryModel.aggregate([
-      { $match: { userId: new mongoose.Types.ObjectId(userId) } },
-      {
-        $group: {
-          _id: {
-            date: { $dateToString: { format: '%Y-%m-%d', date: '$createdAt' } },
-            mood: '$mood',
-          },
-          count: { $sum: 1 },
-        },
-      },
-      { $sort: { '_id.date': 1 } },
-    ]);
+    // Whitelist / canonical moods (frontend uses these colors/emojis)
+    const allowedMoods = [
+      "Happy",
+      "Sad",
+      "Anxious",
+      "Angry",
+      "Neutral",
+      "Grateful",
+      "Excited",
+      "Calm",
+      "Stressed"
+    ];
+
+    // Fetch diaries for this user (only mood + createdAt)
+    const diaries = await diaryModel.find(
+      { userId: new mongoose.Types.ObjectId(userId) },
+      { mood: 1, createdAt: 1 }
+    ).lean();
 
     const timeline = {};
-    result.forEach(({ _id, count }) => {
-      if (!timeline[_id.date]) timeline[_id.date] = {};
-      timeline[_id.date][_id.mood] = count;
+
+    diaries.forEach((entry) => {
+      if (!entry || !entry.createdAt) return;
+      const date = new Date(entry.createdAt).toISOString().split('T')[0]; // YYYY-MM-DD
+
+      if (!timeline[date]) {
+        timeline[date] = {};
+        allowedMoods.forEach(m => (timeline[date][m] = 0));
+      }
+
+      const raw = (entry.mood || '').toString().trim();
+      if (!raw) return;
+
+      // Match ignoring case to one of allowedMoods
+      const normalized = allowedMoods.find(m => m.toLowerCase() === raw.toLowerCase());
+      if (normalized) timeline[date][normalized] += 1;
+      // else ignore moods not in allowed list (e.g., "Positive")
     });
 
-    res.json({ success: true, timeline });
+    console.log("Raw timeline from backend:", timeline);
+
+    // Always return object shaped response your frontend expects
+    return res.json({ success: true, timeline });
   } catch (error) {
-    console.error('Timeline Stats Error:', error);
-    res.status(500).json({ success: false, message: 'Failed to retrieve timeline stats' });
+    console.error("Timeline Stats Error:", error);
+    return res.status(500).json({ success: false, message: "Error fetching timeline stats" });
   }
 };

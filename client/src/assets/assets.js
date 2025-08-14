@@ -2,9 +2,9 @@
 import header_img from './header_img.png'
 // import group_profiles from './group_profiles.png'
 import profile_pic from './profile_pic.png'
-// import abd from './abd.jpg'
-// import contact_image from './contact_image.png'
-// import about_image from './about_image.png'
+import abd from './abd.jpg'
+import contact_image from './contact_image.png'
+import about_image from './about_image.png'
 import logo from './logo.svg'
 import dropdown_icon from './dropdown_icon.svg'
 // import menu_icon from './menu_icon.svg'
@@ -48,10 +48,10 @@ export const assets = {
     // verified_icon,
     // info_icon,
     profile_pic,
-    // abd,
+    abd,
     // arrow_icon,
-    // contact_image,
-    // about_image,
+    contact_image,
+    about_image,
     // menu_icon,
     cross_icon,
     dropdown_icon,
