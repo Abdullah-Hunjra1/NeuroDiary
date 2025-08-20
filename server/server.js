@@ -12,11 +12,8 @@ import statsRouter from './routes/statsRoute.js';
 import insightsRouter from './routes/insightsRoute.js';
 import voiceRouter from './routes/voiceRoute.js';
 
-
-
 import Stripe from 'stripe';
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
-
 
 // Admin
 import adminRouter from './routes/adminRoute.js';

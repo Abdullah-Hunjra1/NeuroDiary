@@ -280,6 +280,7 @@ const MoodAnalyticsDashboard = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 p-6">
       <div className="max-w-7xl mx-auto">
+        
         {/* Header Section */}
         <div className="mb-8">
           <div className="flex items-center justify-between">
@@ -398,7 +399,7 @@ const MoodAnalyticsDashboard = () => {
                 </div>
 
                 <div className="p-6">
-                  <ResponsiveContainer width="100%" height={250}>
+                  <ResponsiveContainer width="100%" height={300}>
                     <PieChart>
                       <Pie
                         data={moodStats}
@@ -451,7 +452,7 @@ const MoodAnalyticsDashboard = () => {
                 </div>
 
                 <div className="p-6">
-                  <ResponsiveContainer width="100%" height={250}>
+                  <ResponsiveContainer width="100%" height={300}>
                     <BarChart
                       data={timelineData}
                       margin={{ top: 20, right: 30, left: 20, bottom: 20 }}

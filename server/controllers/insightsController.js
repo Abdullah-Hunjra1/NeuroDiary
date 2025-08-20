@@ -35,12 +35,13 @@ function buildAnalyzePrompt(entries) {
 Entries:
 ${JSON.stringify(reduced)}`;
 }
-
+ 
 export const getAIInsights = async (req, res) => {
   try {
     const userId = req.user.userId;
 
-    const entries = await Diary.find({ user: userId })
+    // ✅ FIXED: Changed from 'user: userId' to 'userId: userId'
+    const entries = await Diary.find({ userId: userId })
       .sort({ createdAt: -1 })
       .limit(MAX_ENTRIES)
       .select('createdAt mood entry')

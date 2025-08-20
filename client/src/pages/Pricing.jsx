@@ -252,130 +252,128 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="grid lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Free Plan */}
-          <div className="group relative bg-white rounded-3xl p-8 shadow-xl border border-slate-200 hover:shadow-2xl hover:border-slate-300 transition-all duration-300">
-            <div className="absolute inset-0 bg-gradient-to-br from-slate-50 to-white rounded-3xl opacity-60"></div>
-            <div className="relative">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-slate-100 rounded-2xl flex items-center justify-center">
-                  <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-slate-800">Free Plan</h3>
-                  <p className="text-slate-500 text-sm">Perfect for getting started</p>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold text-slate-900">$0</span>
-                  <span className="text-xl text-slate-500">/forever</span>
-                </div>
-                <p className="text-sm text-slate-500 mt-2">No credit card required</p>
-              </div>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  "Unlimited Journal Entries",
-                  "Basic Mood Tracking", 
-                  "Simple AI Feedback",
-                  "Progress Visualization",
-                  "Secure Data Storage"
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <span className="text-slate-700">{feature}</span>
+        {/* Pricing Cards Section */}
+        <section className="relative py-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-teal-50/20 via-transparent to-cyan-50/20"></div>
+          <div className="relative max-w-4xl mx-auto px-4 sm:px-6">
+            <div className="grid lg:grid-cols-2 gap-6">
+              {/* Free Plan */}
+              <div className="group relative bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/40 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center">
+                    <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
                   </div>
-                ))}
-              </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-800">Free Plan</h3>
+                    <p className="text-slate-500 text-sm">Perfect for getting started</p>
+                  </div>
+                </div>
 
-              <div className="pt-4 border-t border-slate-100">
-                <button className="w-full py-3 bg-slate-100 text-slate-700 rounded-2xl font-semibold hover:bg-slate-200 transition-colors duration-200">
+                <div className="mb-6">
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-bold text-slate-900">$0</span>
+                    <span className="text-lg text-slate-500">/forever</span>
+                  </div>
+                  <p className="text-xs text-slate-500 mt-1">No credit card required</p>
+                </div>
+
+                <div className="space-y-3 mb-6">
+                  {[
+                    "Unlimited Journal Entries",
+                    "Basic Mood Tracking", 
+                    "Simple AI Feedback",
+                    "Progress Visualization",
+                    "Secure Data Storage"
+                  ].map((feature, index) => (
+                    <div key={index} className="flex items-center gap-2">
+                      <div className="w-4 h-4 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg className="w-2.5 h-2.5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <span className="text-slate-700 text-sm">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <button className="w-full py-2.5 bg-slate-100 text-slate-700 rounded-xl font-semibold hover:bg-slate-200 transition-colors duration-200 text-sm">
                   Current Plan
                 </button>
               </div>
-            </div>
-          </div>
 
-          {/* Premium Plan */}
-          <div className="group relative bg-gradient-to-br from-teal-600 via-blue-600 to-indigo-700 rounded-3xl p-8 shadow-2xl hover:shadow-3xl transition-all duration-300 transform hover:scale-105">
-            <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-              <div className="bg-gradient-to-r from-orange-400 to-pink-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
-                Most Popular
-              </div>
-            </div>
-            
-            <div className="relative text-white">
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 bg-white/20 backdrop-blur rounded-2xl flex items-center justify-center">
-                  <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                  </svg>
+              {/* Premium Plan */}
+              <div className="group relative bg-gradient-to-br from-teal-600 via-cyan-600 to-blue-700 rounded-2xl p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                  <div className="bg-gradient-to-r from-orange-400 to-pink-500 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg">
+                    Most Popular
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-bold">Premium Plan</h3>
-                  <p className="text-blue-100 text-sm">Advanced mental health insights</p>
-                </div>
-              </div>
-
-              <div className="mb-8">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-3xl font-bold">${premiumPrice}</span>
-                  <span className="text-xl text-blue-200">{priceDuration}</span>
-                </div>
-                {planType === "annually" && (
-                  <p className="text-sm text-blue-200 mt-2">Save $50+ per year</p>
-                )}
-              </div>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  "All Free Plan Features",
-                  "🎤 AI Voice Command Support", 
-                  "🧠 Advanced Emotional Analysis",
-                  "📊 Detailed Trend Reports",
-                  "🎯 Personalized AI Recommendations",
-                  "⚡ Priority Customer Support",
-                  "🔒 Enhanced Security Features"
-                ].map((feature, index) => (
-                  <div key={index} className="flex items-center gap-3">
-                    <div className="w-5 h-5 bg-white/20 backdrop-blur rounded-full flex items-center justify-center flex-shrink-0">
-                      <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                
+                <div className="text-white">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                       </svg>
                     </div>
-                    <span className="text-white/95">{feature}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="pt-4 border-t border-white/20">
-                <button
-                  disabled={loading}
-                  onClick={handleSubscribe}
-                  className="w-full py-3 bg-white text-blue-600 rounded-2xl font-bold hover:bg-blue-50 transition-all duration-200 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
-                >
-                  {loading ? (
-                    <div className="flex items-center justify-center gap-2">
-                      <div className="w-5 h-5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin"></div>
-                      Processing...
+                    <div>
+                      <h3 className="text-xl font-bold">Premium Plan</h3>
+                      <p className="text-cyan-100 text-sm">Advanced mental health insights</p>
                     </div>
-                  ) : (
-                    "Subscribe Now"
-                  )}
-                </button>
+                  </div>
+
+                  <div className="mb-6">
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-3xl font-bold">${premiumPrice}</span>
+                      <span className="text-lg text-cyan-200">{priceDuration}</span>
+                    </div>
+                    {planType === "annually" && (
+                      <p className="text-xs text-cyan-200 mt-1">Save $50+ per year</p>
+                    )}
+                  </div>
+
+                  <div className="space-y-3 mb-6">
+                    {[
+                      "All Free Plan Features",
+                      "🎤 AI Voice Command Support", 
+                      "🧠 Advanced Emotional Analysis",
+                      "📊 Detailed Trend Reports",
+                      "🎯 Personalized AI Recommendations",
+                      "⚡ Priority Customer Support",
+                      "🔒 Enhanced Security Features"
+                    ].map((feature, index) => (
+                      <div key={index} className="flex items-center gap-2">
+                        <div className="w-4 h-4 bg-white/20 backdrop-blur rounded-full flex items-center justify-center flex-shrink-0">
+                          <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                        <span className="text-white/95 text-sm">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <button
+                    disabled={loading}
+                    onClick={handleSubscribe}
+                    className="w-full py-3 bg-white text-teal-600 rounded-xl font-bold hover:bg-blue-50 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-sm"
+                  >
+                    {loading ? (
+                      <div className="flex items-center justify-center gap-2">
+                        <div className="w-4 h-4 border-2 border-teal-600 border-t-transparent rounded-full animate-spin"></div>
+                        Processing...
+                      </div>
+                    ) : (
+                      "Subscribe Now"
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Features Comparison */}
         <div className="mt-16 text-center">

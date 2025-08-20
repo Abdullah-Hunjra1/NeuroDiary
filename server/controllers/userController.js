@@ -8,64 +8,6 @@ import crypto from 'crypto'
 
 
 //API to register a user
-
-// const registerUser = async (req , res) => {
-
-//     try {
-//         const { name, email, password } = req.body;
-
-//         if (!name || !email || !password) {
-//             return res.json({
-//                 success: false,
-//                 message: "Please fill all the fields"
-//             })
-//         }
-
-//         //validating email format
-//         if (!validator.isEmail(email)) {
-//             return res.json({
-//                 success: false,
-//                 message: "Please enter a valid email"
-//             })
-//         }
-
-//         //validating strong password
-//         if(password.length < 8){
-//             return res.json({
-//                 success: false,
-//                 message: "Please enter a strong password"
-//             })
-//         } 
-
-//         //hashing user password
-//         const salt = await bcrypt.genSalt(10);
-//         const hashedPassword = await bcrypt.hash(password, salt);
-
-//         const userData = {
-//             name,
-//             email,
-//             password: hashedPassword
-//         }
-
-//         const newUser = new userModel(userData);
-//         const user = await newUser.save();
-
-//         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, )
-
-//         res.json({
-//             success: true,
-//             token,
-//         })
-
-//     } catch (error) {
-//         console.log(error);
-//         res.json({
-//             success: false,
-//             message: error.message
-//         })
-//     }
-// }
-
 const registerUser = async (req, res) => {
   try {
     const { name, email, password } = req.body;
@@ -110,7 +52,6 @@ const registerUser = async (req, res) => {
     res.json({ success: false, message: error.message });
   }
 };
-
 
 //API for login user
 const loginUser = async (req, res) => {
@@ -162,12 +103,6 @@ const loginUser = async (req, res) => {
   }
 }
 
-
-
-
-
-
-
 // Verify OTP
 export const verifyOTP = async (req, res) => {
   try {
@@ -196,32 +131,7 @@ export const verifyOTP = async (req, res) => {
   }
 };
 
-
-
-
-//API to get user profile data
-
-// const getProfile = async (req, res) => {
-
-//     try {
-//         const {userId} = req.body;
-//         const userData = await userModel.findById(userId).select('-password')
-
-//         res.json({
-//             success: true,
-//             userData
-//         })
-
-
-//     } catch (error) {
-//         console.log(error);
-//         res.json({
-//             success: false,
-//             message: error.message
-//         })
-//     }
-// }
-
+//get profile
 const getProfile = async (req, res) => {
   try {
     const userId = req.user.userId; // ✅ FIXED
@@ -240,48 +150,7 @@ const getProfile = async (req, res) => {
   }
 };
 
-
-//API to update user profile data
-
-// const updateProfile = async (req , res) => {
-
-//     try {
-//         const {userId , name , phone ,  address , dob , gender} = req.body
-//         const imageFile = req.file
-
-//         if (!name || !phone || !dob || !gender) {
-//             return res.json({
-//                 success: false,
-//                 message: "Please fill all the fields"
-//             })
-//         }
-
-//         await userModel.findByIdAndUpdate(userId , { name , phone , address:JSON.parse(address), dob , gender})
-
-
-//         if (imageFile) {
-
-//             //uploading image to cloudinary
-//             const imageUpload = await cloudinary.uploader.upload(imageFile.path, { resource_type: 'image' });
-//             const imageURL = imageUpload.secure_url;
-
-//             await userModel.findByIdAndUpdate(userId , { image: imageURL })
-//         }
-
-//         res.json({
-//             success: true,
-//             message: "Profile updated successfully"
-//         })
-
-//     } catch (error) {
-//         console.log(error);
-//         res.json({
-//             success: false,
-//             message: error.message
-//         })
-//     }
-// }
-
+//Update Profile
 const updateProfile = async (req, res) => {
   try {
     const userId = req.user.userId; // ✅ Use from token

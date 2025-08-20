@@ -1,1252 +1,213 @@
-// import React from "react";
-// import MoodChart from '../components/MoodChart';
-
-// import {
-//   FaSmile,
-//   FaChartLine,
-//   FaLightbulb,
-//   FaMicrophone,
-//   FaSignOutAlt,
-// } from "react-icons/fa";
-// import { FiSettings, FiPieChart, FiUser, FiActivity } from "react-icons/fi";
-
-// const UserDashboard = () => {
-//   const moodStats = { mood: "Happy", trend: "Improving" };
-//   const aiInsight = "You're showing more positive sentiment this week.";
-//   const recommendation = "Try a 5-minute mindfulness session today.";
-//   const recentActivities = [
-//     { user: "You", activity: "logged a positive journal entry.", time: "3 min ago" },
-//     { user: "AI", activity: "analyzed your mood as improving.", time: "10 min ago" },
-//     { user: "You", activity: "completed a breathing session.", time: "1 hour ago" }
-//   ];
-
-//   return (
-//     <div className="min-h-screen flex bg-[#cdeaf5] text-gray-800">
-//       {/* Sidebar */}
-//       <aside className="w-64 bg-white p-6 shadow-md hidden md:flex flex-col justify-between">
-//         <div>
-//           <h1 className="text-[#007189] font-bold text-lg mb-6">NeuroDiary</h1>
-//           <nav className="space-y-4">
-//             <div className="flex items-center gap-3 text-[#007189] hover:text-[#004f5a] cursor-pointer">
-//               <FiPieChart />
-//               <span>Dashboard</span>
-//             </div>
-//             <div className="flex items-center gap-3 text-[#007189] hover:text-[#004f5a] cursor-pointer">
-//               <FaSmile />
-//               <span>Mood Tracker</span>
-//             </div>
-//             <div className="flex items-center gap-3 text-[#007189] hover:text-[#004f5a] cursor-pointer">
-//               <FaChartLine />
-//               <span>AI Insight</span>
-//             </div>
-//             <div className="flex items-center gap-3 text-[#007189] hover:text-[#004f5a] cursor-pointer">
-//               <FaLightbulb />
-//               <span>Recommendations</span>
-//             </div>
-//             <div className="flex items-center gap-3 text-[#007189] hover:text-[#004f5a] cursor-pointer">
-//               <FaMicrophone />
-//               <span>Voice Assistant</span>
-//             </div>
-//             <div className="flex items-center gap-3 text-[#007189] hover:text-[#004f5a] cursor-pointer">
-//               <FiSettings />
-//               <span>Settings</span>
-//             </div>
-//           </nav>
-//         </div>
-//         <div className="flex items-center gap-3 text-[#007189] cursor-pointer">
-//           <FaSignOutAlt />
-//           <span>Logout</span>
-//         </div>
-//       </aside>
-
-//       {/* Main Content */}
-//       <main className="flex-1 p-6 md:p-10">
-//         <h2 className="text-2xl font-bold text-[#007189] mb-6">Welcome Back 👋</h2>
-
-//         {/* Stats Cards */}
-//         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-//           <div className="bg-white rounded-xl p-5 shadow">
-//             <h3 className="text-gray-500 mb-1 text-sm">Mood</h3>
-//             <p className="text-2xl font-bold text-[#007189]">{moodStats.mood}</p>
-//             <p className="text-sm text-gray-400 mt-1">Trend: {moodStats.trend}</p>
-//           </div>
-//           <MoodChart />
-
-//           <div className="bg-white rounded-xl p-5 shadow">
-//             <h3 className="text-gray-500 mb-1 text-sm">AI Insight</h3>
-//             <p className="text-base text-[#007189]">{aiInsight}</p>
-//           </div>
-
-//           <div className="bg-white rounded-xl p-5 shadow">
-//             <h3 className="text-gray-500 mb-1 text-sm">Recommendation</h3>
-//             <p className="text-base text-[#007189]">{recommendation}</p>
-//           </div>
-//         </div>
-
-//         {/* Recent Activities & Assistant */}
-//         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-//           <div className="bg-white rounded-xl p-5 shadow">
-//             <h3 className="text-lg font-semibold text-[#007189] mb-3">Recent Activity</h3>
-//             <ul className="space-y-3">
-//               {recentActivities.map((item, idx) => (
-//                 <li key={idx} className="flex justify-between text-sm text-gray-600">
-//                   <span>{item.user} {item.activity}</span>
-//                   <span className="text-gray-400 text-xs">{item.time}</span>
-//                 </li>
-//               ))}
-//             </ul>
-//           </div>
-
-//           <div className="bg-[#007189] text-white rounded-xl p-5 shadow">
-//             <div className="flex items-center gap-3 mb-3">
-//               <FaMicrophone className="text-xl" />
-//               <h3 className="text-lg font-semibold">Voice Assistant</h3>
-//             </div>
-//             <p className="text-sm text-white/90">
-//               Try saying: <em>"Show my mood chart"</em> or <em>"Suggest an activity"</em>
-//             </p>
-//             <button className="mt-4 bg-white text-[#007189] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition">
-//               Enable Voice
-//             </button>
-//           </div>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default UserDashboard;
-
-
-
-
-
-
-
-
-
-
-
-// Professional User Dashboard for NeuroDiary Project
-// Modern sidebar design with gradient accents and improved UX
-// Maintains all existing logic and components
-
-// import React from "react";
-// import {
-//   FaSmile,
-//   FaChartLine,
-//   FaLightbulb,
-//   FaMicrophone,
-//   FaSignOutAlt,
-// } from "react-icons/fa";
-// import { FiSettings, FiPieChart, FiUser, FiActivity } from "react-icons/fi";
-// import { useNavigate } from "react-router-dom";
-
-// const UserDashboard = () => {
-
-//   const navigate = useNavigate()
-//   return (
-//     <div className="min-h-screen flex bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-//       {/* Modern Sidebar */}
-//       <aside className="w-72 bg-white shadow-xl hidden md:flex flex-col border-r border-gray-200">
-
-//         {/* Navigation */}
-//         <nav className="flex-1 p-6 space-y-2">
-//           <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-3 flex items-center space-x-3 cursor-pointer">
-//             <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-//               <FiPieChart className="text-white text-sm" />
-//             </div>
-//             <span className="font-medium text-indigo-700">Dashboard</span>
-//           </div>
-
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer transition-all duration-200">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaSmile className="text-gray-600 text-sm" />
-//             </div>
-//             <span onClick={() => navigate("/mood-analytics")} className="text-gray-700">Mood Tracker</span>
-//           </div>
-
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer transition-all duration-200">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaChartLine className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">AI Insights</span>
-//           </div>
-
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer transition-all duration-200">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaLightbulb className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Recommendations</span>
-//           </div>
-
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer transition-all duration-200">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaMicrophone className="text-gray-600 text-sm" />
-//             </div>
-//             <span onClick={() => navigate("/voice-page")} className="text-gray-700">Voice Assistant</span>
-//           </div>
-
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer transition-all duration-200">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FiSettings className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Settings</span>
-//           </div>
-//         </nav>
-
-//         {/* User Profile & Logout */}
-//         <div className="p-6 border-t border-gray-100">
-//           <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer transition-all duration-200 mb-3">
-//             <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center">
-//               <FiUser className="text-white text-sm" />
-//             </div>
-//             <div className="flex-1">
-//               <p className="text-sm font-medium text-gray-700">John Doe</p>
-//               <p className="text-xs text-gray-500">Premium User</p>
-//             </div>
-//           </div>
-
-//           <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-red-50 cursor-pointer transition-all duration-200 text-red-600">
-//             <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
-//               <FaSignOutAlt className="text-red-600 text-sm" />
-//             </div>
-//             <span className="text-sm font-medium">Logout</span>
-//           </div>
-//         </div>
-//       </aside>
-
-//       {/* Main Content */}
-//       <main className="flex-1 overflow-hidden">
-//         {/* Header */}
-//         <div className="bg-white shadow-sm border-b border-gray-200 px-6 md:px-8 py-6">
-//           <div className="flex items-center justify-between">
-//             <div>
-//               <h2 className="text-2xl font-bold text-gray-800">Welcome back, John! 👋</h2>
-//               <p className="text-gray-600 mt-1">Here's your mental wellness overview for today</p>
-//             </div>
-//             <div className="hidden md:flex items-center space-x-4">
-//               <div className="bg-gradient-to-r from-green-400 to-emerald-500 text-white px-4 py-2 rounded-xl text-sm font-medium">
-//                 ✨ Feeling Great
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Dashboard Content */}
-//         <div className="p-6 md:p-8 overflow-y-auto">
-
-//           {/* Quick Actions */}
-//           <div className="mt-8">
-//             <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-//               <h3 className="text-lg font-semibold text-gray-800 mb-4">Quick Actions</h3>
-//               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-//                 <button className="flex flex-col items-center p-4 rounded-xl hover:bg-indigo-50 transition-all duration-200 group">
-//                   <div className="w-12 h-12 bg-indigo-100 group-hover:bg-indigo-200 rounded-xl flex items-center justify-center mb-3 transition-all duration-200">
-//                     <span className="text-2xl">📝</span>
-//                   </div>
-//                   <span className="text-sm font-medium text-gray-700">New Entry</span>
-//                 </button>
-
-//                 <button className="flex flex-col items-center p-4 rounded-xl hover:bg-purple-50 transition-all duration-200 group">
-//                   <div className="w-12 h-12 bg-purple-100 group-hover:bg-purple-200 rounded-xl flex items-center justify-center mb-3 transition-all duration-200">
-//                     <span className="text-2xl">😊</span>
-//                   </div>
-//                   <span className="text-sm font-medium text-gray-700">Log Mood</span>
-//                 </button>
-
-//                 <button className="flex flex-col items-center p-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 group">
-//                   <div className="w-12 h-12 bg-emerald-100 group-hover:bg-emerald-200 rounded-xl flex items-center justify-center mb-3 transition-all duration-200">
-//                     <span className="text-2xl">🧘</span>
-//                   </div>
-//                   <span className="text-sm font-medium text-gray-700">Meditation</span>
-//                 </button>
-
-//                 <button className="flex flex-col items-center p-4 rounded-xl hover:bg-amber-50 transition-all duration-200 group">
-//                   <div className="w-12 h-12 bg-amber-100 group-hover:bg-amber-200 rounded-xl flex items-center justify-center mb-3 transition-all duration-200">
-//                     <span className="text-2xl">📊</span>
-//                   </div>
-//                   <span className="text-sm font-medium text-gray-700">Analytics</span>
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default UserDashboard;
-
-
-
-
-
-
-{/* Logo Section */ }
-{/* <div className="p-6 border-b border-gray-100">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center">
-              <span className="text-white font-bold text-lg">N</span>
-            </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                NeuroDiary
-              </h1>
-              <p className="text-xs text-gray-500">Your AI Companion</p>
-            </div>
-          </div>
-        </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import {
-//   FaSmile,
-//   FaChartLine,
-//   FaLightbulb,
-//   FaMicrophone,
-//   FaSignOutAlt,
-// } from "react-icons/fa";
-// import { FiSettings, FiPieChart, FiUser } from "react-icons/fi";
-// import { useNavigate } from "react-router-dom";
-// import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-// import axios from "axios";
-
-// const moodColors = {
-//   Happy: "#10B981",
-//   Sad: "#3B82F6",
-//   Calm: "#FBBF24",
-//   Stressed: "#EF4444",
-//   Neutral: "#6B7280",
-//   Excited: "#8B5CF6",
-// };
-
-// const UserDashboard = () => {
-//   const navigate = useNavigate();
-//   const [recentEntries, setRecentEntries] = useState([]);
-//   const [moodData, setMoodData] = useState([]);
-//   const [aiInsight, setAiInsight] = useState("Loading insights...");
-//   const [recommendations, setRecommendations] = useState([]);
-//   console.log("------------>", recommendations)
-//   useEffect(() => {
-//     const token = localStorage.getItem("token");
-//     if (!token) return;
-
-//     // Fetch last 3 diary entries
-//     // axios
-//     //   .get("/api/diary/my-entries?limit=3", {
-//     //     headers: { Authorization: `Bearer ${token}` },
-//     //   })
-//     //   .then((res) => setRecentEntries(res.data))
-//     //   .catch(() => setRecentEntries([]));
-//     axios
-//       .get("/api/diary/my-entries?limit=3", {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => {
-//         if (res.data && Array.isArray(res.data.entries)) {
-//           setRecentEntries(res.data.entries);
-//           console.log("data -> ", res.data)
-//         } else {
-//           setRecentEntries([]);
-//         }
-//       })
-//       .catch(() => setRecentEntries([]));
-
-      
-//     // Fetch mood data (last 7 days)
-//     axios
-//       .get("/api/mood/summary?days=7", {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => setMoodData(res.data))
-//       .catch(() => setMoodData([]));
-
-//     // Fetch AI Insights
-//     axios
-//       .get("/api/ai/insights/summary", {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => setAiInsight(res.data.message))
-//       .catch(() => setAiInsight("No insights available"));
-
-//     // Fetch Recommendations
-//     axios
-//       .get("/api/recommendations?limit=2", {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => setRecommendations(res.data))
-//       .catch(() => setRecommendations([]));
-//   }, []);
-
-//   return (
-//     <div className="min-h-screen flex bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-//       {/* Sidebar */}
-//       <aside className="w-72 bg-white shadow-xl hidden md:flex flex-col border-r border-gray-200">
-//         <nav className="flex-1 p-6 space-y-2">
-//           <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-3 flex items-center space-x-3 cursor-pointer">
-//             <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-//               <FiPieChart className="text-white text-sm" />
-//             </div>
-//             <span className="font-medium text-indigo-700">Dashboard</span>
-//           </div>
-
-//           <div
-//             onClick={() => navigate("/mood-analytics")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaSmile className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Mood Tracker</span>
-//           </div>
-
-//           <div
-//             onClick={() => navigate("/ai-insights")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaChartLine className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">AI Insights</span>
-//           </div>
-
-//           <div
-//             onClick={() => navigate("/recommendations")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaLightbulb className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Recommendations</span>
-//           </div>
-
-//           <div
-//             onClick={() => navigate("/voice-page")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaMicrophone className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Voice Assistant</span>
-//           </div>
-
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FiSettings className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Settings</span>
-//           </div>
-//         </nav>
-
-//         {/* User Profile & Logout */}
-//         <div className="p-6 border-t border-gray-100">
-//           <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer mb-3">
-//             <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center">
-//               <FiUser className="text-white text-sm" />
-//             </div>
-//             <div className="flex-1">
-//               <p className="text-sm font-medium text-gray-700">John Doe</p>
-//               <p className="text-xs text-gray-500">Premium User</p>
-//             </div>
-//           </div>
-//           <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-red-50 cursor-pointer text-red-600">
-//             <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
-//               <FaSignOutAlt className="text-red-600 text-sm" />
-//             </div>
-//             <span className="text-sm font-medium">Logout</span>
-//           </div>
-//         </div>
-//       </aside>
-
-//       {/* Main Content */}
-//       <main className="flex-1 overflow-y-auto">
-//         {/* Header */}
-//         <div className="bg-white shadow-sm border-b border-gray-200 px-6 py-6">
-//           <h2 className="text-2xl font-bold text-gray-800">
-//             Welcome back, John! 👋
-//           </h2>
-//           <p className="text-gray-600 mt-1">Here’s a quick overview</p>
-//         </div>
-
-//         {/* Summary Sections */}
-//         <div className="p-6 grid gap-6">
-//           {/* Recent Entries */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">Recent Diary Entries</h3>
-//             {recentEntries.length > 0 ? (
-//               recentEntries.map((entry) => (
-//                 <div
-//                   key={entry._id}
-//                   className="border-b py-2 last:border-none cursor-pointer hover:bg-gray-50 px-2 rounded"
-//                   onClick={() => navigate(`/diary/${entry._id}`)}
-//                 >
-//                   <p className="font-medium text-gray-800">{entry.title}</p>
-//                   <p className="text-sm text-gray-500">{entry.mood}</p>
-//                 </div>
-//               ))
-//             ) : (
-//               <p className="text-gray-500">No entries found.</p>
-//             )}
-//             <button
-//               onClick={() => navigate("/my-entries")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               View More →
-//             </button>
-//           </section>
-
-//           {/* Mood Summary */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">Mood Summary (7 Days)</h3>
-//             {/* {moodData.length > 0 ? (
-//               <ResponsiveContainer width="100%" height={200}>
-//                 <PieChart>
-//                   <Pie
-//                     data={moodData}
-//                     dataKey="count"
-//                     nameKey="mood"
-//                     cx="50%"
-//                     cy="50%"
-//                     outerRadius={60}
-//                   >
-//                     {moodData.map((entry, index) => (
-//                       <Cell
-//                         key={`cell-${index}`}
-//                         fill={moodColors[entry.mood] || "#ccc"}
-//                       />
-//                     ))}
-//                   </Pie>
-//                   <Tooltip />
-//                 </PieChart>
-//               </ResponsiveContainer>
-//             ) : (
-//               <p className="text-gray-500">No mood data available.</p>
-//             )} */}
-//             {Array.isArray(moodData) && moodData.length > 0 ? (
-//               <ResponsiveContainer width="100%" height={200}>
-//                 <PieChart>
-//                   <Pie
-//                     data={moodData}
-//                     dataKey="count"
-//                     nameKey="mood"
-//                     cx="50%"
-//                     cy="50%"
-//                     outerRadius={60}
-//                   >
-//                     {moodData.map((entry, index) => (
-//                       <Cell
-//                         key={`cell-${index}`}
-//                         fill={moodColors[entry.mood] || "#ccc"}
-//                       />
-//                     ))}
-//                   </Pie>
-//                   <Tooltip />
-//                 </PieChart>
-//               </ResponsiveContainer>
-//             ) : (
-//               <p className="text-gray-500">No mood data available.</p>
-//             )}
-
-//             <button
-//               onClick={() => navigate("/mood-analytics")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               Go to Mood Tracker →
-//             </button>
-//           </section>
-
-//           {/* AI Insights */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">AI Insights</h3>
-//             <p className="text-gray-700">{aiInsight}</p>
-//             <button
-//               onClick={() => navigate("/ai-insights")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               View Insights →
-//             </button>
-//           </section>
-
-//           {/* Recommendations */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">Recommendations</h3>
-            
-//             {/* {recommendations.length > 0 ? (
-//               recommendations.map((rec, i) => (
-//                 <p key={i} className="text-gray-700 mb-1">
-//                   • {rec.text}
-//                 </p>
-//               ))
-//             ) : (
-//               <p className="text-gray-500">No recommendations available.</p>
-//             )} */}
-//             <button
-//               onClick={() => navigate("/recommendations")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               View All →
-//             </button>
-//           </section>
-
-//           {/* Quick Actions */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-//             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-//               <button
-//                 onClick={() => navigate("/create-entry")}
-//                 className="flex flex-col items-center p-4 rounded-xl hover:bg-indigo-50 transition-all duration-200 group"
-//               >
-//                 <div className="w-12 h-12 bg-indigo-100 group-hover:bg-indigo-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">📝</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">New Entry</span>
-//               </button>
-
-//               <button
-//                 onClick={() => navigate("/mood-analytics")}
-//                 className="flex flex-col items-center p-4 rounded-xl hover:bg-purple-50 transition-all duration-200 group"
-//               >
-//                 <div className="w-12 h-12 bg-purple-100 group-hover:bg-purple-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">😊</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">Log Mood</span>
-//               </button>
-
-//               <button className="flex flex-col items-center p-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 group">
-//                 <div className="w-12 h-12 bg-emerald-100 group-hover:bg-emerald-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">🧘</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">Meditation</span>
-//               </button>
-
-//               <button
-//                 onClick={() => navigate("/mood-analytics")}
-//                 className="flex flex-col items-center p-4 rounded-xl hover:bg-amber-50 transition-all duration-200 group"
-//               >
-//                 <div className="w-12 h-12 bg-amber-100 group-hover:bg-amber-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">📊</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">Analytics</span>
-//               </button>
-//             </div>
-//           </section>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default UserDashboard;
-
-
-
-
-
-
-
-
-
-// import React, { useEffect, useState } from "react";
-// import {
-//   FaSmile,
-//   FaChartLine,
-//   FaLightbulb,
-//   FaMicrophone,
-//   FaSignOutAlt,
-// } from "react-icons/fa";
-// import { FiSettings, FiPieChart, FiUser } from "react-icons/fi";
-// import { useNavigate } from "react-router-dom";
-// import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
-// import axios from "axios";
-
-// const moodColors = {
-//   Happy: "#10B981",
-//   Sad: "#3B82F6",
-//   Calm: "#FBBF24",
-//   Stressed: "#EF4444",
-//   Neutral: "#6B7280",
-//   Excited: "#8B5CF6",
-// };
-
-// const UserDashboard = () => {
-//   const navigate = useNavigate();
-//   const [recentEntries, setRecentEntries] = useState([]);
-//   const [moodData, setMoodData] = useState([]);
-//   const [aiInsight, setAiInsight] = useState("Loading insights...");
-//   const [recommendations, setRecommendations] = useState([]);
-
-//   useEffect(() => {
-//     const token = localStorage.getItem("token");
-//     const backendUrl = import.meta.env.VITE_BACKEND_URL;
-//     if (!token) return;
-
-//     // Fetch last 3 diary entries
-//     axios
-//       .get(`${backendUrl}/api/diary/my-entries?limit=3`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => {
-//         if (res.data && Array.isArray(res.data.entries)) {
-//           setRecentEntries(res.data.entries);
-//         } else {
-//           setRecentEntries([]);
-//         }
-//       })
-//       .catch(() => setRecentEntries([]));
-
-//     // Fetch mood data (last 7 days)
-//     axios
-//       .get(`${backendUrl}/api/stats/mood?days=7`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => {
-//         // backend returns { success:true, moodStats: { Happy:2, Sad:1 } }
-//         if (res.data && res.data.moodStats) {
-//           const arr = Object.entries(res.data.moodStats).map(([mood, count]) => ({
-//             mood,
-//             count,
-//           }));
-//           setMoodData(arr);
-//         } else {
-//           setMoodData([]);
-//         }
-//       })
-//       .catch(() => setMoodData([]));
-
-//     // Fetch AI Insights
-//     axios
-//       .get(`${backendUrl}/api/ai/insights/summary`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => {
-//         if (res.data && res.data.message) {
-//           setAiInsight(res.data.message);
-//         } else {
-//           setAiInsight("No insights available");
-//         }
-//       })
-//       .catch(() => setAiInsight("No insights available"));
-
-//     // Fetch Recommendations
-//     axios
-//       .get(`${backendUrl}/api/recommendations?mood=happy`, {
-//         headers: { Authorization: `Bearer ${token}` },
-//       })
-//       .then((res) => {
-//         // backend returns { success:true, recommendations: {...} } (object, not array)
-//         if (res.data && res.data.recommendations) {
-//           // convert object into array of { text } for mapping
-//           const recObj = res.data.recommendations;
-//           const arr = Object.values(recObj).map((val) => ({ text: val }));
-//           setRecommendations(arr);
-//         } else {
-//           setRecommendations([]);
-//         }
-//       })
-//       .catch(() => setRecommendations([]));
-//   }, []);
-
-//   return (
-//     <div className="min-h-screen flex bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
-//       {/* Sidebar */}
-//       <aside className="w-72 bg-white shadow-xl hidden md:flex flex-col border-r border-gray-200">
-//         <nav className="flex-1 p-6 space-y-2">
-//           <div className="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-100 rounded-xl p-3 flex items-center space-x-3 cursor-pointer">
-//             <div className="w-8 h-8 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-lg flex items-center justify-center">
-//               <FiPieChart className="text-white text-sm" />
-//             </div>
-//             <span className="font-medium text-indigo-700">Dashboard</span>
-//           </div>
-//           <div
-//             onClick={() => navigate("/mood-analytics")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaSmile className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Mood Tracker</span>
-//           </div>
-//           <div
-//             onClick={() => navigate("/ai-insights")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaChartLine className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">AI Insights</span>
-//           </div>
-//           <div
-//             onClick={() => navigate("/recommendations")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaLightbulb className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Recommendations</span>
-//           </div>
-//           <div
-//             onClick={() => navigate("/voice-page")}
-//             className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer"
-//           >
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FaMicrophone className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Voice Assistant</span>
-//           </div>
-//           <div className="hover:bg-gray-50 rounded-xl p-3 flex items-center space-x-3 cursor-pointer">
-//             <div className="w-8 h-8 bg-gray-100 rounded-lg flex items-center justify-center">
-//               <FiSettings className="text-gray-600 text-sm" />
-//             </div>
-//             <span className="text-gray-700">Settings</span>
-//           </div>
-//         </nav>
-
-//         {/* User Profile & Logout */}
-//         <div className="p-6 border-t border-gray-100">
-//           <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 cursor-pointer mb-3">
-//             <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-cyan-500 rounded-full flex items-center justify-center">
-//               <FiUser className="text-white text-sm" />
-//             </div>
-//             <div className="flex-1">
-//               <p className="text-sm font-medium text-gray-700">John Doe</p>
-//               <p className="text-xs text-gray-500">Premium User</p>
-//             </div>
-//           </div>
-//           <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-red-50 cursor-pointer text-red-600">
-//             <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
-//               <FaSignOutAlt className="text-red-600 text-sm" />
-//             </div>
-//             <span className="text-sm font-medium">Logout</span>
-//           </div>
-//         </div>
-//       </aside>
-
-//       {/* Main Content */}
-//       <main className="flex-1 overflow-y-auto">
-//         {/* Header */}
-//         <div className="bg-white shadow-sm border-b border-gray-200 px-6 py-6">
-//           <h2 className="text-2xl font-bold text-gray-800">
-//             Welcome back, John! 👋
-//           </h2>
-//           <p className="text-gray-600 mt-1">Here’s a quick overview</p>
-//         </div>
-
-//         {/* Summary Sections */}
-//         <div className="p-6 grid gap-6">
-//           {/* Recent Entries */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">Recent Diary Entries</h3>
-//             {Array.isArray(recentEntries) && recentEntries.length > 0 ? (
-//               recentEntries.map((entry) => (
-//                 <div
-//                   key={entry._id}
-//                   className="border-b py-2 last:border-none cursor-pointer hover:bg-gray-50 px-2 rounded"
-//                   onClick={() => navigate(`/diary/${entry._id}`)}
-//                 >
-//                   <p className="font-medium text-gray-800">{entry.title}</p>
-//                   <p className="text-sm text-gray-500">{entry.mood}</p>
-//                 </div>
-//               ))
-//             ) : (
-//               <p className="text-gray-500">No entries found.</p>
-//             )}
-//             <button
-//               onClick={() => navigate("/my-entries")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               View More →
-//             </button>
-//           </section>
-
-//           {/* Mood Summary */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">Mood Summary (7 Days)</h3>
-//             {Array.isArray(moodData) && moodData.length > 0 ? (
-//               <ResponsiveContainer width="100%" height={200}>
-//                 <PieChart>
-//                   <Pie
-//                     data={moodData}
-//                     dataKey="count"
-//                     nameKey="mood"
-//                     cx="50%"
-//                     cy="50%"
-//                     outerRadius={60}
-//                   >
-//                     {moodData.map((entry, index) => (
-//                       <Cell
-//                         key={`cell-${index}`}
-//                         fill={moodColors[entry.mood] || "#ccc"}
-//                       />
-//                     ))}
-//                   </Pie>
-//                   <Tooltip />
-//                 </PieChart>
-//               </ResponsiveContainer>
-//             ) : (
-//               <p className="text-gray-500">No mood data available.</p>
-//             )}
-//             <button
-//               onClick={() => navigate("/mood-analytics")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               Go to Mood Tracker →
-//             </button>
-//           </section>
-
-//           {/* AI Insights */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">AI Insights</h3>
-//             <p className="text-gray-700">{aiInsight}</p>
-//             <button
-//               onClick={() => navigate("/ai-insights")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               View Insights →
-//             </button>
-//           </section>
-
-//           {/* Recommendations */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="font-semibold text-lg mb-3">Recommendations</h3>
-//             {Array.isArray(recommendations) && recommendations.length > 0 ? (
-//               recommendations.map((rec, i) => (
-//                 <p key={i} className="text-gray-700 mb-1">
-//                   • {rec.text}
-//                 </p>
-//               ))
-//             ) : (
-//               <p className="text-gray-500">No recommendations available.</p>
-//             )}
-//             <button
-//               onClick={() => navigate("/recommendations")}
-//               className="text-indigo-600 text-sm mt-3"
-//             >
-//               View All →
-//             </button>
-//           </section>
-
-//           {/* Quick Actions */}
-//           <section className="bg-white rounded-xl shadow-sm border p-5">
-//             <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-//             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-//               <button
-//                 onClick={() => navigate("/create-entry")}
-//                 className="flex flex-col items-center p-4 rounded-xl hover:bg-indigo-50 transition-all duration-200 group"
-//               >
-//                 <div className="w-12 h-12 bg-indigo-100 group-hover:bg-indigo-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">📝</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">New Entry</span>
-//               </button>
-
-//               <button
-//                 onClick={() => navigate("/mood-analytics")}
-//                 className="flex flex-col items-center p-4 rounded-xl hover:bg-purple-50 transition-all duration-200 group"
-//               >
-//                 <div className="w-12 h-12 bg-purple-100 group-hover:bg-purple-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">😊</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">Log Mood</span>
-//               </button>
-
-//               <button className="flex flex-col items-center p-4 rounded-xl hover:bg-emerald-50 transition-all duration-200 group">
-//                 <div className="w-12 h-12 bg-emerald-100 group-hover:bg-emerald-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">🧘</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">Meditation</span>
-//               </button>
-
-//               <button
-//                 onClick={() => navigate("/mood-analytics")}
-//                 className="flex flex-col items-center p-4 rounded-xl hover:bg-amber-50 transition-all duration-200 group"
-//               >
-//                 <div className="w-12 h-12 bg-amber-100 group-hover:bg-amber-200 rounded-xl flex items-center justify-center mb-3">
-//                   <span className="text-2xl">📊</span>
-//                 </div>
-//                 <span className="text-sm font-medium text-gray-700">Analytics</span>
-//               </button>
-//             </div>
-//           </section>
-//         </div>
-//       </main>
-//     </div>
-//   );
-// };
-
-// export default UserDashboard;
-
-
-
-
-
-
-
-// ----------------------------------- 
-
-
-
 import React, { useEffect, useState } from "react";
-import {
-  FaSmile,
-  FaChartLine,
-  FaLightbulb,
-  FaMicrophone,
-  FaSignOutAlt,
-  FaCalendarAlt,
-  FaArrowUp,
-  FaHeart,
-  FaBrain
-} from "react-icons/fa";
-import { FiSettings, FiPieChart, FiUser, FiActivity } from "react-icons/fi";
+import {FaSmile,FaChartLine,FaLightbulb,FaCalendarAlt,FaArrowUp,FaHeart,FaBrain,FaPlus,FaEye,FaTrash} from "react-icons/fa";
+import { FiActivity } from "react-icons/fi";
+import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from "recharts";
 import { useNavigate } from "react-router-dom";
-import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, LineChart, Line, XAxis, YAxis, CartesianGrid } from "recharts";
-import axios from "axios";
 
 const moodColors = {
   Happy: "#10B981",
-  Sad: "#3B82F6", 
+  Sad: "#3B82F6",
   Calm: "#06B6D4",
   Stressed: "#EF4444",
   Neutral: "#6B7280",
   Excited: "#8B5CF6",
+  Anxious: "#F59E0B",
+  Angry: "#DC2626",
+  Grateful: "#059669"
 };
 
 const UserDashboard = () => {
-  const navigate = useNavigate();
   const [recentEntries, setRecentEntries] = useState([]);
   const [moodData, setMoodData] = useState([]);
-  const [aiInsight, setAiInsight] = useState("Loading insights...");
+  const [aiInsights, setAiInsights] = useState({
+    overallMood: "Loading...",
+    summary: "Loading insights...",
+    keyConcerns: [],
+    positiveChanges: [],
+    recommendations: [],
+    highlights: []
+  });
   const [recommendations, setRecommendations] = useState([]);
+  const [userProfile, setUserProfile] = useState({ name: "User" });
+  const [loading, setLoading] = useState(true);
+  const [stats, setStats] = useState({
+    totalEntries: 0,
+    avgMood: "Good",
+    streak: 7,
+    aiScore: 8.5
+  });
+
+  const navigate = useNavigate();
+
+  // Get token and API base URL
+  const getToken = () => localStorage.getItem("token");
+  const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:5000";
+
+  // API call helper
+  const apiCall = async (endpoint, options = {}) => {
+    const token = getToken();
+    if (!token) {
+      navigate("/login");
+      return null;
+    }
+
+    try {
+      const response = await fetch(`${backendUrl}${endpoint}`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`,
+          ...options.headers
+        },
+        ...options
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
+
+      return await response.json();
+    } catch (error) {
+      console.error(`API Error (${endpoint}):`, error);
+      return null;
+    }
+  };
+
+  // Fetch user profile
+  const fetchUserProfile = async () => {
+    const data = await apiCall('/api/user/get-profile');
+    if (data?.success) {
+      setUserProfile(data.userData || { name: "User" });
+    }
+  };
+
+  // Fetch recent diary entries
+  const fetchRecentEntries = async () => {
+    const data = await apiCall('/api/diary/my-entries');
+    if (data?.success && Array.isArray(data.entries)) {
+      setRecentEntries(data.entries.slice(0, 3));
+      setStats(prev => ({ ...prev, totalEntries: data.entries.length }));
+    }
+  };
+
+  // Fetch mood statistics
+  const fetchMoodStats = async () => {
+    const data = await apiCall('/api/stats/mood');
+    if (data?.success && data.moodStats) {
+      const moodArray = Object.entries(data.moodStats).map(([mood, count]) => ({
+        mood,
+        count,
+        name: mood // for recharts
+      }));
+      setMoodData(moodArray);
+
+      // Calculate average mood
+      if (moodArray.length > 0) {
+        const topMood = moodArray.reduce((a, b) => a.count > b.count ? a : b);
+        setStats(prev => ({ ...prev, avgMood: topMood.mood }));
+      }
+    }
+  };
+
+  // Fetch AI insights
+  const fetchAIInsights = async () => {
+    const data = await apiCall('/api/insights/');
+    if (data) {
+      setAiInsights({
+        overallMood: data.overallMood || "Mixed",
+        summary: data.summary || "No insights available yet",
+        keyConcerns: data.keyConcerns || [],
+        positiveChanges: data.positiveChanges || [],
+        recommendations: data.recommendations || [],
+        highlights: data.highlights || []
+      });
+
+      // Calculate AI score based on insights
+      let score = 7.0;
+      if (data.overallMood?.toLowerCase().includes('positive')) score += 1;
+      if (data.overallMood?.toLowerCase().includes('good')) score += 0.5;
+      if (data.positiveChanges?.length > 2) score += 0.5;
+      setStats(prev => ({ ...prev, aiScore: Math.min(10, score) }));
+    }
+  };
+
+  // Fetch recommendations
+  const fetchRecommendations = async () => {
+    const data = await apiCall('/api/recommendations?mood=happy');
+    if (data?.success && data.recommendations) {
+      const recArray = Object.values(data.recommendations).map(val => ({
+        text: typeof val === 'string' ? val : JSON.stringify(val)
+      }));
+      setRecommendations(recArray);
+    }
+  };
+
+  // Delete diary entry
+  const deleteDiaryEntry = async (id) => {
+    if (!confirm("Are you sure you want to delete this entry?")) return;
+
+    const data = await apiCall(`/api/diary/delete/${id}`, { method: 'DELETE' });
+    if (data?.success) {
+      setRecentEntries(prev => prev.filter(entry => entry._id !== id));
+    }
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
-    if (!token) return;
+    const loadData = async () => {
+      setLoading(true);
+      await Promise.all([
+        fetchUserProfile(),
+        fetchRecentEntries(),
+        fetchMoodStats(),
+        fetchAIInsights(),
+        fetchRecommendations()
+      ]);
+      setLoading(false);
+    };
 
-    // Fetch last 3 diary entries
-    axios
-      .get(`${backendUrl}/api/diary/my-entries?limit=3`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        if (res.data && Array.isArray(res.data.entries)) {
-          setRecentEntries(res.data.entries);
-        } else {
-          setRecentEntries([]);
-        }
-      })
-      .catch(() => setRecentEntries([]));
-
-    // Fetch mood data (last 7 days)
-    axios
-      .get(`${backendUrl}/api/stats/mood?days=7`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        if (res.data && res.data.moodStats) {
-          const arr = Object.entries(res.data.moodStats).map(([mood, count]) => ({
-            mood,
-            count,
-          }));
-          setMoodData(arr);
-        } else {
-          setMoodData([]);
-        }
-      })
-      .catch(() => setMoodData([]));
-
-    // Fetch AI Insights
-    axios
-      .get(`${backendUrl}/api/ai/insights/summary`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        if (res.data && res.data.message) {
-          setAiInsight(res.data.message);
-        } else {
-          setAiInsight("No insights available");
-        }
-      })
-      .catch(() => setAiInsight("No insights available"));
-
-    // Fetch Recommendations
-    axios
-      .get(`${backendUrl}/api/recommendations?mood=happy`, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((res) => {
-        if (res.data && res.data.recommendations) {
-          const recObj = res.data.recommendations;
-          const arr = Object.values(recObj).map((val) => ({ text: val }));
-          setRecommendations(arr);
-        } else {
-          setRecommendations([]);
-        }
-      })
-      .catch(() => setRecommendations([]));
+    loadData();
   }, []);
 
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-blue-50">
+        <div className="text-center">
+          <div className="w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center mx-auto mb-4 animate-pulse">
+            <FaBrain className="text-white text-2xl" />
+          </div>
+          <p className="text-slate-600">Loading your dashboard...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen flex relative">
-      {/* Background matching Home page */}
+    <div className="min-h-screen flex relative bg-gradient-to-br from-slate-50/90 via-blue-50/30 to-cyan-50/40">
+      {/* Background Elements */}
       <div className="fixed inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-50/90 via-blue-50/30 to-cyan-50/40"></div>
-        
-        {/* Background orbs - matching home page */}
+        {/* Background orbs */}
         <div className="absolute top-10 left-10 w-64 h-64 bg-gradient-to-br from-teal-400/8 to-cyan-400/8 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
         <div className="absolute top-1/4 right-10 w-48 h-48 bg-gradient-to-br from-blue-400/6 to-indigo-400/6 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-1000"></div>
         <div className="absolute bottom-20 left-1/4 w-56 h-56 bg-gradient-to-br from-cyan-400/8 to-teal-400/8 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000"></div>
-        
+
         {/* Subtle grid pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(rgba(6,182,212,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(6,182,212,0.015)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       </div>
 
-      {/* Sidebar */}
-      <aside className="w-80 bg-white/80 backdrop-blur-md shadow-2xl hidden md:flex flex-col border-r border-slate-200/50">
-        {/* Logo/Brand Section */}
-        <div className="p-6 border-b border-slate-200/50">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center">
-              <FaBrain className="text-white text-lg" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold bg-gradient-to-r from-teal-700 to-cyan-700 bg-clip-text text-transparent">
-                MindTracker
-              </h1>
-              <p className="text-xs text-slate-500">Your Mental Wellness Hub</p>
-            </div>
-          </div>
-        </div>
-
-        <nav className="flex-1 p-6 space-y-3">
-          <div className="bg-gradient-to-r from-teal-50/80 to-cyan-50/80 border border-teal-200/50 rounded-2xl p-4 flex items-center space-x-4 cursor-pointer backdrop-blur-sm">
-            <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-xl flex items-center justify-center shadow-lg">
-              <FiPieChart className="text-white text-lg" />
-            </div>
-            <div>
-              <span className="font-semibold text-teal-700">Dashboard</span>
-              <p className="text-xs text-teal-600">Overview & Stats</p>
-            </div>
-          </div>
-
-          <div
-            onClick={() => navigate("/mood-analytics")}
-            className="hover:bg-white/60 hover:shadow-lg rounded-2xl p-4 flex items-center space-x-4 cursor-pointer transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-slate-200/30"
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-slate-100 to-blue-100 rounded-xl flex items-center justify-center">
-              <FaSmile className="text-slate-600 text-lg" />
-            </div>
-            <div>
-              <span className="text-slate-700 font-medium">Mood Tracker</span>
-              <p className="text-xs text-slate-500">Log your emotions</p>
-            </div>
-          </div>
-
-          <div
-            onClick={() => navigate("/ai-insights")}
-            className="hover:bg-white/60 hover:shadow-lg rounded-2xl p-4 flex items-center space-x-4 cursor-pointer transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-slate-200/30"
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-slate-100 to-blue-100 rounded-xl flex items-center justify-center">
-              <FaChartLine className="text-slate-600 text-lg" />
-            </div>
-            <div>
-              <span className="text-slate-700 font-medium">AI Insights</span>
-              <p className="text-xs text-slate-500">Smart analytics</p>
-            </div>
-          </div>
-
-          <div
-            onClick={() => navigate("/recommendations")}
-            className="hover:bg-white/60 hover:shadow-lg rounded-2xl p-4 flex items-center space-x-4 cursor-pointer transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-slate-200/30"
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-slate-100 to-blue-100 rounded-xl flex items-center justify-center">
-              <FaLightbulb className="text-slate-600 text-lg" />
-            </div>
-            <div>
-              <span className="text-slate-700 font-medium">Recommendations</span>
-              <p className="text-xs text-slate-500">Personalized tips</p>
-            </div>
-          </div>
-
-          <div
-            onClick={() => navigate("/voice-page")}
-            className="hover:bg-white/60 hover:shadow-lg rounded-2xl p-4 flex items-center space-x-4 cursor-pointer transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-slate-200/30"
-          >
-            <div className="w-10 h-10 bg-gradient-to-br from-slate-100 to-blue-100 rounded-xl flex items-center justify-center">
-              <FaMicrophone className="text-slate-600 text-lg" />
-            </div>
-            <div>
-              <span className="text-slate-700 font-medium">Voice Assistant</span>
-              <p className="text-xs text-slate-500">Talk it out</p>
-            </div>
-          </div>
-
-          <div className="hover:bg-white/60 hover:shadow-lg rounded-2xl p-4 flex items-center space-x-4 cursor-pointer transition-all duration-300 backdrop-blur-sm border border-transparent hover:border-slate-200/30">
-            <div className="w-10 h-10 bg-gradient-to-br from-slate-100 to-blue-100 rounded-xl flex items-center justify-center">
-              <FiSettings className="text-slate-600 text-lg" />
-            </div>
-            <div>
-              <span className="text-slate-700 font-medium">Settings</span>
-              <p className="text-xs text-slate-500">Preferences</p>
-            </div>
-          </div>
-        </nav>
-
-        {/* User Profile & Logout */}
-        <div className="p-6 border-t border-slate-200/50">
-          <div className="flex items-center space-x-4 p-4 rounded-2xl bg-gradient-to-r from-blue-50/80 to-cyan-50/80 hover:from-blue-50 hover:to-cyan-50 cursor-pointer mb-4 transition-all duration-300 border border-blue-200/30">
-            <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-full flex items-center justify-center shadow-lg">
-              <FiUser className="text-white text-lg" />
-            </div>
-            <div className="flex-1">
-              <p className="text-sm font-semibold text-slate-800">John Doe</p>
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-teal-500 rounded-full animate-pulse"></div>
-                <p className="text-xs text-slate-600">Premium User</p>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center space-x-4 p-4 rounded-2xl hover:bg-red-50/80 cursor-pointer text-red-600 transition-all duration-300 border border-transparent hover:border-red-200/50">
-            <div className="w-10 h-10 bg-red-100 rounded-xl flex items-center justify-center">
-              <FaSignOutAlt className="text-red-600 text-sm" />
-            </div>
-            <span className="text-sm font-medium">Logout</span>
-          </div>
-        </div>
-      </aside>
-
       {/* Main Content */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 min-h-screen">
         {/* Header */}
         <div className="bg-white/70 backdrop-blur-md shadow-sm border-b border-slate-200/50 px-8 py-8">
           <div className="flex items-center justify-between">
             <div>
               <h2 className="text-3xl font-bold text-slate-800">
-                Welcome back, <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">John!</span> 👋
+                Welcome back, <span className="bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">{userProfile.name}!</span> 👋
               </h2>
               <p className="text-slate-600 mt-2 flex items-center space-x-2">
                 <FaCalendarAlt className="text-teal-500" />
                 <span>Here's your mental wellness overview for today</span>
               </p>
             </div>
-            <div className="hidden md:flex items-center space-x-4">
+            <div className="hidden lg:flex items-center space-x-4">
               <div className="bg-gradient-to-r from-teal-50 to-cyan-50 border border-teal-200/50 rounded-2xl px-6 py-3">
                 <div className="flex items-center space-x-3">
                   <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-cyan-600 rounded-full flex items-center justify-center">
@@ -1254,7 +215,7 @@ const UserDashboard = () => {
                   </div>
                   <div>
                     <p className="text-xs text-slate-600">Wellness Score</p>
-                    <p className="font-bold text-teal-700">87%</p>
+                    <p className="font-bold text-teal-700">{Math.round(stats.aiScore * 10)}%</p>
                   </div>
                 </div>
               </div>
@@ -1262,17 +223,17 @@ const UserDashboard = () => {
           </div>
         </div>
 
-        {/* Stats Cards */}
-        <div className="p-8 grid gap-6">
+        {/* Content */}
+        <div className="p-8">
           {/* Quick Stats Row */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-2">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-slate-600 text-sm font-medium">Total Entries</p>
-                  <p className="text-2xl font-bold text-slate-800">{recentEntries.length}</p>
+                  <p className="text-2xl font-bold text-slate-800">{stats.totalEntries}</p>
                   <p className="text-xs text-teal-600 flex items-center mt-1">
-                    <FaArrowUp className="mr-1" /> +12% this week
+                    <FaArrowUp className="mr-1" /> Keep writing!
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-100 to-cyan-100 rounded-2xl flex items-center justify-center">
@@ -1284,10 +245,10 @@ const UserDashboard = () => {
             <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-slate-600 text-sm font-medium">Avg Mood</p>
-                  <p className="text-2xl font-bold text-slate-800">Good</p>
+                  <p className="text-slate-600 text-sm font-medium">Overall Mood</p>
+                  <p className="text-2xl font-bold text-slate-800">{aiInsights.overallMood}</p>
                   <p className="text-xs text-blue-600 flex items-center mt-1">
-                    <FaSmile className="mr-1" /> Stable trend
+                    <FaSmile className="mr-1" /> From AI analysis
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-indigo-100 rounded-2xl flex items-center justify-center">
@@ -1299,10 +260,10 @@ const UserDashboard = () => {
             <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-slate-600 text-sm font-medium">Streak</p>
-                  <p className="text-2xl font-bold text-slate-800">7 days</p>
+                  <p className="text-slate-600 text-sm font-medium">Active Days</p>
+                  <p className="text-2xl font-bold text-slate-800">{stats.streak} days</p>
                   <p className="text-xs text-emerald-600 flex items-center mt-1">
-                    <FaHeart className="mr-1" /> Keep it up!
+                    <FaHeart className="mr-1" /> Great streak!
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-2xl flex items-center justify-center">
@@ -1314,10 +275,10 @@ const UserDashboard = () => {
             <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="text-slate-600 text-sm font-medium">AI Score</p>
-                  <p className="text-2xl font-bold text-slate-800">8.5/10</p>
+                  <p className="text-slate-600 text-sm font-medium">AI Insights Score</p>
+                  <p className="text-2xl font-bold text-slate-800">{stats.aiScore.toFixed(1)}/10</p>
                   <p className="text-xs text-purple-600 flex items-center mt-1">
-                    <FaBrain className="mr-1" /> Excellent
+                    <FaBrain className="mr-1" /> Well-being analysis
                   </p>
                 </div>
                 <div className="w-12 h-12 bg-gradient-to-br from-purple-100 to-indigo-100 rounded-2xl flex items-center justify-center">
@@ -1328,9 +289,9 @@ const UserDashboard = () => {
           </div>
 
           {/* Main Content Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
             {/* Left Column */}
-            <div className="lg:col-span-2 space-y-8">
+            <div className="xl:col-span-2 space-y-8">
               {/* Recent Entries */}
               <section className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
                 <div className="flex items-center justify-between mb-6">
@@ -1349,33 +310,51 @@ const UserDashboard = () => {
                     View All →
                   </button>
                 </div>
-                
+
                 <div className="space-y-3">
-                  {Array.isArray(recentEntries) && recentEntries.length > 0 ? (
-                    recentEntries.map((entry, index) => (
+                  {recentEntries.length > 0 ? (
+                    recentEntries.map((entry) => (
                       <div
                         key={entry._id}
                         className="group p-4 rounded-xl hover:bg-gradient-to-r hover:from-teal-50/50 hover:to-cyan-50/50 cursor-pointer transition-all duration-300 border border-transparent hover:border-teal-200/50"
-                        onClick={() => navigate(`/diary/${entry._id}`)}
                       >
                         <div className="flex items-center justify-between">
-                          <div className="flex-1">
+                          <div
+                            className="flex-1"
+                            onClick={() => navigate(`/diary/${entry._id}`)}
+                          >
                             <h4 className="font-semibold text-slate-800 group-hover:text-teal-700">{entry.title}</h4>
+                            <p className="text-sm text-slate-600 mt-1 line-clamp-2">{entry.entry?.substring(0, 100)}...</p>
                             <div className="flex items-center space-x-3 mt-2">
-                              <span 
+                              <span
                                 className="px-3 py-1 rounded-full text-xs font-medium"
-                                style={{ 
-                                  backgroundColor: `${moodColors[entry.mood]}20`,
-                                  color: moodColors[entry.mood]
+                                style={{
+                                  backgroundColor: `${moodColors[entry.mood] || '#6B7280'}20`,
+                                  color: moodColors[entry.mood] || '#6B7280'
                                 }}
                               >
                                 {entry.mood}
                               </span>
-                              <span className="text-xs text-slate-500">2 hours ago</span>
+                              <span className="text-xs text-slate-500">
+                                {new Date(entry.createdAt).toLocaleDateString()}
+                              </span>
                             </div>
                           </div>
-                          <div className="text-slate-400 group-hover:text-teal-500">
-                            →
+                          <div className="flex items-center space-x-2 ml-4">
+                            <button
+                              onClick={() => navigate(`/diary/${entry._id}`)}
+                              className="p-2 text-slate-400 hover:text-blue-500 hover:bg-blue-50 rounded-lg transition-colors"
+                              title="View Entry"
+                            >
+                              <FaEye className="text-sm" />
+                            </button>
+                            <button
+                              onClick={() => deleteDiaryEntry(entry._id)}
+                              className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 rounded-lg transition-colors"
+                              title="Delete Entry"
+                            >
+                              <FaTrash className="text-sm" />
+                            </button>
                           </div>
                         </div>
                       </div>
@@ -1388,10 +367,11 @@ const UserDashboard = () => {
                         </svg>
                       </div>
                       <p className="text-slate-500">No entries found. Start your journey today!</p>
-                      <button 
+                      <button
                         onClick={() => navigate("/create-entry")}
                         className="mt-3 px-4 py-2 bg-gradient-to-r from-teal-600 to-cyan-600 text-white rounded-xl text-sm font-medium hover:from-teal-700 hover:to-cyan-700 transition-all duration-300"
                       >
+                        <FaPlus className="inline mr-2" />
                         Create First Entry
                       </button>
                     </div>
@@ -1415,11 +395,69 @@ const UserDashboard = () => {
                     View Details →
                   </button>
                 </div>
-                
-                <div className="bg-gradient-to-r from-purple-50/80 to-indigo-50/80 border border-purple-200/30 rounded-2xl p-6">
-                  <p className="text-slate-700 leading-relaxed">{aiInsight}</p>
+
+                <div className="space-y-4">
+                  <div className="bg-gradient-to-r from-purple-50/80 to-indigo-50/80 border border-purple-200/30 rounded-2xl p-4">
+                    <h4 className="font-semibold text-purple-800 mb-2">Summary</h4>
+                    <p className="text-slate-700 leading-relaxed text-sm">{aiInsights.summary}</p>
+                  </div>
+
+                  {aiInsights.keyConcerns.length > 0 && (
+                    <div className="bg-gradient-to-r from-amber-50/80 to-yellow-50/80 border border-amber-200/30 rounded-2xl p-4">
+                      <h4 className="font-semibold text-amber-800 mb-2">Areas of Focus</h4>
+                      <ul className="space-y-1">
+                        {aiInsights.keyConcerns.slice(0, 3).map((concern, i) => (
+                          <li key={i} className="text-sm text-slate-700 flex items-center">
+                            <span className="w-2 h-2 bg-amber-500 rounded-full mr-2"></span>
+                            {concern}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {aiInsights.positiveChanges.length > 0 && (
+                    <div className="bg-gradient-to-r from-emerald-50/80 to-green-50/80 border border-emerald-200/30 rounded-2xl p-4">
+                      <h4 className="font-semibold text-emerald-800 mb-2">Positive Changes</h4>
+                      <ul className="space-y-1">
+                        {aiInsights.positiveChanges.slice(0, 3).map((change, i) => (
+                          <li key={i} className="text-sm text-slate-700 flex items-center">
+                            <span className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></span>
+                            {change}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
                 </div>
               </section>
+
+              {/* Highlights */}
+              {aiInsights.highlights.length > 0 && (
+                <section className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-8 h-8 bg-gradient-to-br from-yellow-100 to-orange-100 rounded-xl flex items-center justify-center">
+                      <svg className="w-5 h-5 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-bold text-lg text-slate-800">Highlights</h3>
+                  </div>
+
+                  <div className="space-y-3">
+                    {aiInsights.highlights.map((highlight, i) => (
+                      <div key={i} className="p-4 bg-gradient-to-r from-yellow-50/50 to-orange-50/50 border border-yellow-200/30 rounded-xl">
+                        <div className="flex justify-between items-start mb-2">
+                          <span className="text-xs font-medium text-yellow-700 bg-yellow-100 px-2 py-1 rounded-full">
+                            {highlight.date}
+                          </span>
+                        </div>
+                        <blockquote className="text-slate-700 italic">"{highlight.quote}"</blockquote>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
 
             {/* Right Column */}
@@ -1432,13 +470,13 @@ const UserDashboard = () => {
                       <FaSmile className="text-blue-600 text-lg" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-lg text-slate-800">Mood Summary</h3>
-                      <p className="text-xs text-slate-500">Last 7 days</p>
+                      <h3 className="font-bold text-lg text-slate-800">Mood Distribution</h3>
+                      <p className="text-xs text-slate-500">Your emotional patterns</p>
                     </div>
                   </div>
                 </div>
-                
-                {Array.isArray(moodData) && moodData.length > 0 ? (
+
+                {moodData.length > 0 ? (
                   <div>
                     <ResponsiveContainer width="100%" height={200}>
                       <PieChart>
@@ -1459,7 +497,7 @@ const UserDashboard = () => {
                             />
                           ))}
                         </Pie>
-                        <Tooltip 
+                        <Tooltip
                           contentStyle={{
                             background: 'rgba(255, 255, 255, 0.9)',
                             border: 'none',
@@ -1473,7 +511,7 @@ const UserDashboard = () => {
                     <div className="mt-4 grid grid-cols-2 gap-2">
                       {moodData.map((entry, index) => (
                         <div key={index} className="flex items-center space-x-2 text-sm">
-                          <div 
+                          <div
                             className="w-3 h-3 rounded-full"
                             style={{ backgroundColor: moodColors[entry.mood] || '#6B7280' }}
                           ></div>
@@ -1489,14 +527,15 @@ const UserDashboard = () => {
                       <FaSmile className="text-slate-400 text-lg" />
                     </div>
                     <p className="text-slate-500 text-sm">No mood data available</p>
+                    <p className="text-xs text-slate-400 mt-1">Start logging your moods to see insights</p>
                   </div>
                 )}
-                
+
                 <button
                   onClick={() => navigate("/mood-analytics")}
                   className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
                 >
-                  Go to Mood Tracker
+                  Track New Mood
                 </button>
               </section>
 
@@ -1507,12 +546,12 @@ const UserDashboard = () => {
                     <div className="w-8 h-8 bg-gradient-to-br from-amber-100 to-orange-100 rounded-xl flex items-center justify-center">
                       <FaLightbulb className="text-amber-600 text-lg" />
                     </div>
-                    <h3 className="font-bold text-lg text-slate-800">Recommendations</h3>
+                    <h3 className="font-bold text-lg text-slate-800">AI Recommendations</h3>
                   </div>
                 </div>
-                
+
                 <div className="space-y-3">
-                  {Array.isArray(recommendations) && recommendations.length > 0 ? (
+                  {recommendations.length > 0 ? (
                     recommendations.slice(0, 3).map((rec, i) => (
                       <div key={i} className="flex items-start space-x-3 p-3 rounded-xl bg-gradient-to-r from-amber-50/50 to-orange-50/50 border border-amber-200/30">
                         <div className="w-2 h-2 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full mt-2 flex-shrink-0"></div>
@@ -1525,22 +564,46 @@ const UserDashboard = () => {
                         <FaLightbulb className="text-slate-400 text-sm" />
                       </div>
                       <p className="text-slate-500 text-sm">No recommendations available</p>
+                      <p className="text-xs text-slate-400 mt-1">Write more entries to get personalized tips</p>
                     </div>
                   )}
                 </div>
-                
+
                 <button
                   onClick={() => navigate("/recommendations")}
                   className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-xl text-sm font-medium hover:from-amber-700 hover:to-orange-700 transition-all duration-300"
                 >
-                  View All Recommendations
+                  Get More Recommendations
                 </button>
               </section>
+
+              {/* AI Insights Recommendations */}
+              {aiInsights.recommendations.length > 0 && (
+                <section className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
+                  <div className="flex items-center space-x-3 mb-6">
+                    <div className="w-8 h-8 bg-gradient-to-br from-indigo-100 to-purple-100 rounded-xl flex items-center justify-center">
+                      <FaBrain className="text-indigo-600 text-lg" />
+                    </div>
+                    <h3 className="font-bold text-lg text-slate-800">AI Suggestions</h3>
+                  </div>
+
+                  <div className="space-y-3">
+                    {aiInsights.recommendations.slice(0, 4).map((rec, i) => (
+                      <div key={i} className="p-3 rounded-xl bg-gradient-to-r from-indigo-50/50 to-purple-50/50 border border-indigo-200/30">
+                        <div className="flex items-start space-x-2">
+                          <span className="text-indigo-600 font-bold text-sm">{i + 1}.</span>
+                          <p className="text-slate-700 text-sm leading-relaxed flex-1">{rec}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              )}
             </div>
           </div>
 
           {/* Quick Actions */}
-          <section className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300">
+          <section className="bg-white/80 backdrop-blur-md rounded-2xl shadow-lg border border-slate-200/30 p-6 hover:shadow-xl transition-all duration-300 mt-8">
             <div className="flex items-center space-x-3 mb-6">
               <div className="w-8 h-8 bg-gradient-to-br from-emerald-100 to-teal-100 rounded-xl flex items-center justify-center">
                 <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1549,8 +612,8 @@ const UserDashboard = () => {
               </div>
               <h3 className="text-xl font-bold text-slate-800">Quick Actions</h3>
             </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <button
                 onClick={() => navigate("/create-entry")}
                 className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-cyan-50 transition-all duration-300 border-2 border-transparent hover:border-teal-200/50 hover:shadow-lg"
@@ -1573,16 +636,19 @@ const UserDashboard = () => {
                 <span className="text-xs text-slate-500 mt-1">Track emotions</span>
               </button>
 
-              <button className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-emerald-50 hover:to-green-50 transition-all duration-300 border-2 border-transparent hover:border-emerald-200/50 hover:shadow-lg">
+              <button
+                onClick={() => navigate("/ai-insights")}
+                className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-emerald-50 hover:to-green-50 transition-all duration-300 border-2 border-transparent hover:border-emerald-200/50 hover:shadow-lg"
+              >
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-green-100 group-hover:from-emerald-200 group-hover:to-green-200 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110">
-                  <span className="text-2xl">🧘</span>
+                  <span className="text-2xl">🧠</span>
                 </div>
-                <span className="text-sm font-semibold text-slate-700 group-hover:text-emerald-700">Meditation</span>
-                <span className="text-xs text-slate-500 mt-1">Find peace</span>
+                <span className="text-sm font-semibold text-slate-700 group-hover:text-emerald-700">AI Analysis</span>
+                <span className="text-xs text-slate-500 mt-1">Get insights</span>
               </button>
 
               <button
-                onClick={() => navigate("/mood-analytics")}
+                onClick={() => navigate("/stats")}
                 className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-amber-50 hover:to-orange-50 transition-all duration-300 border-2 border-transparent hover:border-amber-200/50 hover:shadow-lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-100 group-hover:from-amber-200 group-hover:to-orange-200 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110">
@@ -1596,7 +662,7 @@ const UserDashboard = () => {
         </div>
       </main>
 
-      {/* Floating elements matching home page */}
+      {/* Floating elements */}
       <div className="fixed top-1/3 left-6 w-2 h-2 bg-teal-400/40 rounded-full animate-ping pointer-events-none"></div>
       <div className="fixed top-2/3 right-8 w-1.5 h-1.5 bg-cyan-400/30 rounded-full animate-pulse pointer-events-none"></div>
       <div className="fixed bottom-1/4 left-1/3 w-1 h-1 bg-blue-400/40 rounded-full animate-pulse delay-1000 pointer-events-none"></div>

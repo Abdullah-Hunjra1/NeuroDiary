@@ -1,31 +1,59 @@
 // import jwt from 'jsonwebtoken';
+// import User from '../models/userModel.js';
 
 // const authUser = async (req, res, next) => {
 //   try {
-//     const { token } = req.headers;
-//     if (!token) {
-//       return res.json({
+//     const authHeader = req.headers.authorization;
+
+//     if (!authHeader || !authHeader.startsWith('Bearer ')) {
+//       return res.status(401).json({
 //         success: false,
 //         message: 'Unauthorized - Please login again',
 //       });
 //     }
 
+//     const token = authHeader.split(' ')[1]; // Get token after 'Bearer '
 //     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-//     // ✅ Don't assign to req.body — use req.user instead
-//     req.user = { userId: decoded.id };
+//     const user = await User.findById(decoded.id).select('-password');
+//     if (!user) {
+//       return res.status(401).json({ success: false, message: 'User not found' });
+//     }
+
+//     req.user = {
+//       userId: user._id,
+//       isAdmin: user.isAdmin, // ✅ Include this for admin checks
+//     };
 
 //     next();
 //   } catch (error) {
-//     console.log(error);
-//     res.json({
+//     console.error('Auth Error:', error.message);
+//     res.status(401).json({
 //       success: false,
-//       message: error.message,
+//       message: 'Invalid or expired token',
 //     });
 //   }
 // };
 
 // export default authUser;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -44,22 +72,32 @@
 //     const authHeader = req.headers.authorization;
 
 //     if (!authHeader || !authHeader.startsWith('Bearer ')) {
-//       return res.json({
+//       return res.status(401).json({
 //         success: false,
 //         message: 'Unauthorized - Please login again',
 //       });
 //     }
 
-//     const token = authHeader.split(' ')[1]; // Get token after 'Bearer '
+//     const token = authHeader.split(' ')[1];
 //     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-//     req.user = { userId: decoded.id };
-//     next();
-//   } catch (error) {
-//     console.log(error);
-//     res.json({
+//     // ✅ Hardcoded admin bypass
+//     if (decoded.isAdmin && decoded.email === "hafizabd804@gmail.com") {
+//       req.user = { userId: null, isAdmin: true, email: decoded.email };
+//       return next();
+//     }
+
+//     // ❌ If you don't want DB users at all, just block others:
+//     return res.status(403).json({
 //       success: false,
-//       message: error.message,
+//       message: "Access denied - Admin only",
+//     });
+
+//   } catch (error) {
+//     console.error("Auth Error:", error.message);
+//     res.status(401).json({
+//       success: false,
+//       message: "Invalid or expired token",
 //     });
 //   }
 // };
@@ -76,44 +114,49 @@
 
 
 
+// --------------------
 
 
 
-
-
-import jwt from 'jsonwebtoken';
-import User from '../models/userModel.js'; // ✅ Make sure this path is correct
+import jwt from "jsonwebtoken";
+import User from "../models/userModel.js";
 
 const authUser = async (req, res, next) => {
   try {
     const authHeader = req.headers.authorization;
 
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
       return res.status(401).json({
         success: false,
-        message: 'Unauthorized - Please login again',
+        message: "Unauthorized - Please login again",
       });
     }
 
-    const token = authHeader.split(' ')[1]; // Get token after 'Bearer '
+    const token = authHeader.split(" ")[1];
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-    const user = await User.findById(decoded.id).select('-password');
-    if (!user) {
-      return res.status(401).json({ success: false, message: 'User not found' });
+    // ✅ Hardcoded Admin Bypass
+    if (decoded.isAdmin && decoded.email === "hafizabd804@gmail.com") {
+      req.user = { _id: "admin", email: decoded.email, isAdmin: true };
+      return next();
     }
 
-    req.user = {
-      userId: user._id,
-      isAdmin: user.isAdmin, // ✅ Include this for admin checks
-    };
+    // ✅ Normal User Flow
+    const user = await User.findById(decoded.id).select("-password");
+    if (!user) {
+      return res.status(404).json({
+        success: false,
+        message: "User not found",
+      });
+    }
 
+    req.user = user;
     next();
   } catch (error) {
-    console.error('Auth Error:', error.message);
+    console.error("Auth Error:", error.message);
     res.status(401).json({
       success: false,
-      message: 'Invalid or expired token',
+      message: "Invalid or expired token",
     });
   }
 };

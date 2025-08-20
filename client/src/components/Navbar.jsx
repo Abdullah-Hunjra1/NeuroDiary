@@ -273,7 +273,7 @@ const Navbar = () => {
                         </button>
 
                         <button
-                          onClick={() => navigate("user-dashboard")}
+                          onClick={() => navigate("dashboard/user-dashboard")}
                           className="flex items-center w-full px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors duration-150"
                         >
                           <svg className="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -376,7 +376,7 @@ const Navbar = () => {
 
               <button
                 onClick={() => {
-                  navigate("user-dashboard");
+                  navigate("dashboard/user-dashboard");
                   setIsUserMenuOpen(false);
                 }}
                 className="flex items-center w-full px-4 py-2 text-sm text-slate-700 hover:bg-slate-50 hover:text-teal-600 transition-colors duration-150"
@@ -439,7 +439,7 @@ const Navbar = () => {
               <div className="pt-4 border-t border-slate-200">
                 <button
                   onClick={() => {
-                    navigate("user-dashboard");
+                    navigate("dashboard/user-dashboard");
                     closeMobileMenu();
                   }}
                   className="w-full flex items-center justify-center px-6 py-3 font-medium text-teal-600 bg-gradient-to-r from-teal-50 to-cyan-50 border border-teal-200 rounded-xl hover:from-teal-100 hover:to-cyan-100 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2"

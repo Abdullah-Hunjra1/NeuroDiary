@@ -5,7 +5,8 @@ import HowItWorks from "./HowItWorks";
 import Testimonials from "./Testimonials";
 import FAQ from "./FAQ";
 import Features from "./Features";
-
+import SidebarItem from "./SidebarItem";
+import Sidebar from "./SidebarItemParent";
 
 
 export {
@@ -16,4 +17,6 @@ export {
     HowItWorks,
     Testimonials,
     FAQ,
+    SidebarItem,
+    Sidebar as SidebarItemParent
 }
