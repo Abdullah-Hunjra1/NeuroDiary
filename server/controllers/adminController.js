@@ -100,7 +100,7 @@ import jwt from 'jsonwebtoken';
 // ✅ Admin Login (hardcoded only)
 export const adminLogin = async (req, res) => {
   const { email, password } = req.body;
-
+ 
   try {
     if (email === 'hafizabd804@gmail.com' && password === 'admin') {
       const token = jwt.sign(

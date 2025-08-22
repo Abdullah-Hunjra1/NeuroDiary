@@ -107,7 +107,7 @@ const UserDashboard = () => {
       }
     }
   };
-
+  
   // Fetch AI insights
   const fetchAIInsights = async () => {
     const data = await apiCall('/api/insights/');

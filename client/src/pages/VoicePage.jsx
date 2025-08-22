@@ -12,7 +12,7 @@ export default function VoicePage() {
   useEffect(() => {
     if (!userData?.isPremium) {
       toast.error("You need a premium subscription to access this page.");
-      navigate("/pricing");
+      // navigate("/pricing");
     }
   }, [userData]);
   return (

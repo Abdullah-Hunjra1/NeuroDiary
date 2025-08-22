@@ -191,7 +191,6 @@ const MoodAnalyticsDashboard = () => {
       // ===== Timeline data (defensive + case-insensitive match) =====
       // Accept both shapes: { success: true, timeline: {...} } or just {...}
       const timeRaw = (timeRes.data && (timeRes.data.timeline ?? timeRes.data)) || {};
-      console.log("Raw timeline from backend:", timeRaw);
 
       // If empty, set timelineData to empty array so charts render safely
       if (!timeRaw || Object.keys(timeRaw).length === 0) {

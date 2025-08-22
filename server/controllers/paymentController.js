@@ -7,7 +7,7 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const createSubscription = async (req, res) => {
   try {
     const { planType } = req.body;
-    const userId = req.user.userId;
+    const userId = req.user._id;
 
     const user = await userModel.findById(userId);
     if (!user) {

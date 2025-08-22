@@ -18,13 +18,13 @@ const AdminLogin = () => {
     try {
       const { data } = await axios.post(`${backendUrl}/api/admin/login`, { email, password });
       if (data.success) {
-        // localStorage.setItem('adminToken', data.token);
-        // setToken(data.token);
-        localStorage.setItem('token', data.token); // ✅ match AppContext
+        localStorage.setItem('adminToken', data.token);
         setToken(data.token);
+        // localStorage.setItem('token', data.token); // ✅ match AppContext
+        // setToken(data.token);
         toast.success('Admin login successful!');
         navigate('/admin-dashboard');
-      } else {
+      } else { 
         toast.error(data.message);
       }
     } catch (error) {

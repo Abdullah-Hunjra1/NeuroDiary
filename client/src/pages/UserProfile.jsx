@@ -624,10 +624,11 @@ import React, { useContext, useState, useEffect } from "react";
 import { AppContext } from "../../context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
-
+ 
 const UserProfile = () => {
   const { userData, setUserData, token, loadUserProfileData } = useContext(AppContext);
 
+  
   const [isEdit, setIsEdit] = useState(false);
   const [image, setImage] = useState(false);
   const [loading, setLoading] = useState(true);

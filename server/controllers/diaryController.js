@@ -142,7 +142,7 @@ import groqProvider from '../providers/groqProvider.js';
 const createDiary = async (req, res) => {
   try {
     const { title, entry, mood } = req.body;
-    const userId = req.user.userId;
+    const userId = req.user._id;
 
     // ✅ 1. Analyze mood & sentiment
     const groqResponse = await groqProvider.generate({
@@ -208,7 +208,7 @@ const createDiary = async (req, res) => {
 // Get all entries for logged-in user
 const getUserDiaries = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user._id;
     const entries = await diaryModel.find({ userId }).sort({ createdAt: -1 });
     res.json({ success: true, entries });
   } catch (error) {
@@ -220,7 +220,7 @@ const getUserDiaries = async (req, res) => {
 const deleteDiary = async (req, res) => {
   try {
     const { id } = req.params;
-    const userId = req.user.userId;
+    const userId = req.user._id;
 
     const deleted = await diaryModel.findOneAndDelete({ _id: id, userId });
     if (!deleted) return res.json({ success: false, message: 'Entry not found' });

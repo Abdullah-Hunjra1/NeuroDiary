@@ -134,7 +134,7 @@ export const verifyOTP = async (req, res) => {
 //get profile
 const getProfile = async (req, res) => {
   try {
-    const userId = req.user.userId; // ✅ FIXED
+    const userId = req.user._id; // ✅ FIXED
     const userData = await userModel.findById(userId).select('-password');
 
     res.json({
@@ -153,7 +153,7 @@ const getProfile = async (req, res) => {
 //Update Profile
 const updateProfile = async (req, res) => {
   try {
-    const userId = req.user.userId; // ✅ Use from token
+    const userId = req.user._id; // ✅ Use from token
     const { name, phone, address, dob, gender } = req.body;
     const imageFile = req.file;
 

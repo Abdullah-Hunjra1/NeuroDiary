@@ -30,7 +30,7 @@ const CreateEntryPage = () => {
             );
             
             toast.success("Diary entry created successfully! AI has analyzed your mood automatically.");
-            navigate("/my-entries");
+            navigate("/dashboard/my-entries");
         } catch (err) {
             toast.error("Failed to create entry");
         } finally {

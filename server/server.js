@@ -34,7 +34,7 @@ app.use(cors({
 }));
 
 //api endpoints
-app.use('/api/user', userRouter);
+app.use('/api/user', userRouter);  
 app.use('/api/diary', diaryRouter);
 app.use('/api/payment', paymentRouter);
 app.use('/api/recommendations', recommendationRouter);

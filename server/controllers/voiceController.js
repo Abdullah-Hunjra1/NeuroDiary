@@ -18,7 +18,7 @@ manager.save();
 
 export const handleVoiceCommand = async (req, res) => {
   const { command } = req.body;
-  const userId = req.user.userId;
+  const userId = req.user._id;
 
   if (!command) return res.status(400).json({ success: false, message: 'Command is required' });
 

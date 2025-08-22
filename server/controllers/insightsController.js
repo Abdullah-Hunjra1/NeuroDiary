@@ -38,7 +38,7 @@ ${JSON.stringify(reduced)}`;
  
 export const getAIInsights = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user._id;
 
     // ✅ FIXED: Changed from 'user: userId' to 'userId: userId'
     const entries = await Diary.find({ userId: userId })
@@ -85,7 +85,7 @@ export const getAIInsights = async (req, res) => {
 
 export const queryInsight = async (req, res) => {
   try {
-    const userId = req.user.userId;
+    const userId = req.user._id;
     const { question } = req.body;
 
     if (!question?.trim()) {
