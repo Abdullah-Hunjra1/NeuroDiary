@@ -30,7 +30,7 @@ import MoodAnalyticsDashboard from "./pages/MoodAnalyticsDashboard.jsx";
 import AIInsights from './pages/AIInsights';
 import RecommendationPage from './pages/RecommendationPage.jsx'
 import VoicePage from "./pages/VoicePage.jsx"
-
+import PaymentSuccess from "./pages/PaymentSuccess.jsx";
 
 import AdminDashboard from "./pages/AdminDashboard.jsx";
 import AdminLogin from "./pages/AdminLogin.jsx";
@@ -41,7 +41,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import { App } from "../src/App.jsx";
 import AppContextProvider from "../context/AppContext.jsx";
 
-const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+const stripePromise =  loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -53,6 +53,7 @@ const router = createBrowserRouter(
       <Route path="verify-otp" element={<VerifyOTP />} />
       <Route path="user-profile" element={<UserProfile />} />
       <Route path="pricing" element={<Pricing />} />
+      <Route path="payment-success" element={<PaymentSuccess />} />
       <Route path="dashboard" element={<Dashboard />}>
         <Route path="user-dashboard" element={<UserDashboard />} />
         <Route path="create-entry" element={<CreateEntryPage />} />

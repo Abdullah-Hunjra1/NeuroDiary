@@ -147,6 +147,7 @@ import axios from 'axios';
 import { useContext } from 'react';
 import { AppContext } from '../../context/AppContext';
 import { toast } from 'react-toastify';
+import { loadStripe } from "@stripe/stripe-js";
 
 const Pricing = () => {
   const [planType, setPlanType] = useState("annually");
@@ -156,49 +157,36 @@ const Pricing = () => {
   const premiumPrice = planType === "annually" ? "69.99" : "9.99";
   const priceDuration = planType === "annually" ? "/year" : "/month";
 
-  const handleSubscribe = async () => {
-    try {
-      setLoading(true);
 
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+
+  const handleSubscribe = async () => {
+    setLoading(true);
+    try {
       const { data } = await axios.post(
-        `${backendUrl}/api/payment/create-subscription`,
+        `${backendUrl}/api/payment/create-checkout-session`,
         { planType },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`, // ✅ send token
           },
         }
       );
 
       if (data.success) {
-        const stripe = await import('@stripe/stripe-js').then((m) =>
-          m.loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY)
-        );
-
-        const stripeInstance = await stripe;
-        const clientSecret = data.clientSecret;
-
-        const result = await stripeInstance.confirmCardPayment(clientSecret, {
-          payment_method: {
-            card: {},
-          },
-        });
-
-        if (result.error) {
-          toast.error(result.error.message);
-        } else {
-          toast.success("Subscription successful!");
-        }
+        const stripe = await stripePromise;
+        await stripe.redirectToCheckout({ sessionId: data.id });
       } else {
-        toast.error(data.message);
+        toast.error(data.message || "Something went wrong with payment.");
       }
     } catch (error) {
-      console.error(error);
-      toast.error("Payment failed.");
+      console.error("Checkout error:", error);
+      toast.error(error.response?.data?.message || "Unexpected payment error. Please try again.");
     } finally {
       setLoading(false);
     }
   };
+
 
   return (
     <section className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50 py-10 px-6 md:px-2">
@@ -211,12 +199,12 @@ const Pricing = () => {
             </svg>
             Premium Mental Health Features
           </div>
-          
+
           <h2 className="text-4xl md:text-4xl font-bold bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Choose Your Plan
           </h2>
           <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Unlock the full potential of your mental health journey with AI-powered insights, 
+            Unlock the full potential of your mental health journey with AI-powered insights,
             voice commands, and personalized recommendations designed just for you.
           </p>
         </div>
@@ -226,11 +214,10 @@ const Pricing = () => {
           <div className="bg-white p-2 rounded-2xl shadow-lg border border-slate-200 inline-flex">
             <button
               onClick={() => setPlanType("annually")}
-              className={`relative px-6 py-2 text-sm font-semibold rounded-xl transition-all duration-300 ${
-                planType === "annually" 
-                  ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-lg transform scale-105" 
-                  : "text-slate-600 hover:text-slate-800"
-              }`}
+              className={`relative px-6 py-2 text-sm font-semibold rounded-xl transition-all duration-300 ${planType === "annually"
+                ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-lg transform scale-105"
+                : "text-slate-600 hover:text-slate-800"
+                }`}
             >
               {planType === "annually" && (
                 <div className="absolute -top-2 -right-2 bg-orange-500 text-white text-xs px-2 py-1 rounded-full">
@@ -241,11 +228,10 @@ const Pricing = () => {
             </button>
             <button
               onClick={() => setPlanType("monthly")}
-              className={`px-6 py-2 text-sm font-semibold rounded-xl transition-all duration-300 ${
-                planType === "monthly" 
-                  ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-lg transform scale-105" 
-                  : "text-slate-600 hover:text-slate-800"
-              }`}
+              className={`px-6 py-2 text-sm font-semibold rounded-xl transition-all duration-300 ${planType === "monthly"
+                ? "bg-gradient-to-r from-teal-500 to-blue-600 text-white shadow-lg transform scale-105"
+                : "text-slate-600 hover:text-slate-800"
+                }`}
             >
               Monthly
             </button>
@@ -282,7 +268,7 @@ const Pricing = () => {
                 <div className="space-y-3 mb-6">
                   {[
                     "Unlimited Journal Entries",
-                    "Basic Mood Tracking", 
+                    "Basic Mood Tracking",
                     "Simple AI Feedback",
                     "Progress Visualization",
                     "Secure Data Storage"
@@ -310,7 +296,7 @@ const Pricing = () => {
                     Most Popular
                   </div>
                 </div>
-                
+
                 <div className="text-white">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-white/20 backdrop-blur rounded-xl flex items-center justify-center">
@@ -337,7 +323,7 @@ const Pricing = () => {
                   <div className="space-y-3 mb-6">
                     {[
                       "All Free Plan Features",
-                      "🎤 AI Voice Command Support", 
+                      "🎤 AI Voice Command Support",
                       "🧠 Advanced Emotional Analysis",
                       "📊 Detailed Trend Reports",
                       "🎯 Personalized AI Recommendations",
