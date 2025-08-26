@@ -41,7 +41,7 @@ import Dashboard from "./pages/Dashboard.jsx";
 import { App } from "../src/App.jsx";
 import AppContextProvider from "../context/AppContext.jsx";
 
-const stripePromise =  loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
 const router = createBrowserRouter(
   createRoutesFromElements(

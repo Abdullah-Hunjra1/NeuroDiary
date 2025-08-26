@@ -6,15 +6,17 @@ import VoiceAssistant from '../components/VoiceAssistant';
 
 export default function VoicePage() {
 
-   const { userData } = useContext(AppContext);
+   const { userData , loading} = useContext(AppContext);
   const navigate = useNavigate();
 
   useEffect(() => {
+     if (loading) return;
+
     if (!userData?.isPremium) {
       toast.error("You need a premium subscription to access this page.");
-      // navigate("/pricing");
+      navigate("/pricing");
     }
-  }, [userData]);
+  }, [userData , loading]);
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-teal-50">
       {/* Hero Section */}

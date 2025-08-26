@@ -234,21 +234,7 @@ const Sidebar = ({ children }) => {
             <ul className="flex-1 px-3">{children}</ul>
           </SidebarContext.Provider>
 
-          {/* Bottom User Info */}
-          <div className="border-t border-cyan-200/30 flex p-3 bg-gradient-to-r from-slate-50/80 to-blue-50/60">
-            <img
-              src="https://ui-avatars.com/api/?name=Toheed+Khan&background=0891b2&color=ffffff&bold=true"
-              alt="User"
-              className="w-10 h-10 rounded-md mx-auto shadow-sm"
-            />
-            <div className={`flex justify-between items-center transition-all duration-300 ${expanded ? "w-52 ml-3" : "w-0"}`}>
-              <div className={`flex flex-col ${expanded ? "opacity-100" : "opacity-0"}`}>
-                <h4 className="font-semibold text-slate-800">Toheed Ullah</h4>
-                <span className="text-xs text-slate-600">toheedullah002@gmail.com</span>
-              </div>
-              <MoreVertical size={20} className="text-slate-500 hover:text-teal-600 transition-colors duration-200" />
-            </div>
-          </div>
+      
         </nav>
       </aside>
     </>
