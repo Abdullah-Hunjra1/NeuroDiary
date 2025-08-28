@@ -1,5 +1,3 @@
-// server/controllers/contactController.js
-
 const contactForm = async (req, res) => {
     try {
       const { firstName, lastName, email, phone, message } = req.body;

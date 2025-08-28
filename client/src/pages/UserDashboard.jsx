@@ -389,7 +389,7 @@ const UserDashboard = () => {
                     <h3 className="font-bold text-lg text-slate-800">AI Insights</h3>
                   </div>
                   <button
-                    onClick={() => navigate("/ai-insights")}
+                    onClick={() => navigate("/dashboard/ai-insights")}
                     className="text-sm bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent hover:from-purple-700 hover:to-indigo-700 font-semibold"
                   >
                     View Details →
@@ -532,7 +532,7 @@ const UserDashboard = () => {
                 )}
 
                 <button
-                  onClick={() => navigate("/mood-analytics")}
+                  onClick={() => navigate("/dashboard/mood-analytics")}
                   className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl text-sm font-medium hover:from-blue-700 hover:to-indigo-700 transition-all duration-300"
                 >
                   Track New Mood
@@ -570,7 +570,7 @@ const UserDashboard = () => {
                 </div>
 
                 <button
-                  onClick={() => navigate("/recommendations")}
+                  onClick={() => navigate("/dashboard/recommendations")}
                   className="w-full mt-4 px-4 py-3 bg-gradient-to-r from-amber-600 to-orange-600 text-white rounded-xl text-sm font-medium hover:from-amber-700 hover:to-orange-700 transition-all duration-300"
                 >
                   Get More Recommendations
@@ -615,7 +615,7 @@ const UserDashboard = () => {
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
               <button
-                onClick={() => navigate("/create-entry")}
+                onClick={() => navigate("/dashboard/create-entry")}
                 className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-teal-50 hover:to-cyan-50 transition-all duration-300 border-2 border-transparent hover:border-teal-200/50 hover:shadow-lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-teal-100 to-cyan-100 group-hover:from-teal-200 group-hover:to-cyan-200 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110">
@@ -626,7 +626,7 @@ const UserDashboard = () => {
               </button>
 
               <button
-                onClick={() => navigate("/mood-analytics")}
+                onClick={() => navigate("/dashboard/mood-analytics")}
                 className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-purple-50 hover:to-indigo-50 transition-all duration-300 border-2 border-transparent hover:border-purple-200/50 hover:shadow-lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-purple-100 to-indigo-100 group-hover:from-purple-200 group-hover:to-indigo-200 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110">
@@ -637,7 +637,7 @@ const UserDashboard = () => {
               </button>
 
               <button
-                onClick={() => navigate("/ai-insights")}
+                onClick={() => navigate("/dashboard/ai-insights")}
                 className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-emerald-50 hover:to-green-50 transition-all duration-300 border-2 border-transparent hover:border-emerald-200/50 hover:shadow-lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-emerald-100 to-green-100 group-hover:from-emerald-200 group-hover:to-green-200 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110">
@@ -648,7 +648,7 @@ const UserDashboard = () => {
               </button>
 
               <button
-                onClick={() => navigate("/stats")}
+                onClick={() => navigate("/dashboard/stats")}
                 className="group flex flex-col items-center p-6 rounded-2xl hover:bg-gradient-to-br hover:from-amber-50 hover:to-orange-50 transition-all duration-300 border-2 border-transparent hover:border-amber-200/50 hover:shadow-lg"
               >
                 <div className="w-16 h-16 bg-gradient-to-br from-amber-100 to-orange-100 group-hover:from-amber-200 group-hover:to-orange-200 rounded-2xl flex items-center justify-center mb-3 transition-all duration-300 group-hover:scale-110">

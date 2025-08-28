@@ -20,8 +20,6 @@ const AdminLogin = () => {
       if (data.success) {
         localStorage.setItem('adminToken', data.token);
         setToken(data.token);
-        // localStorage.setItem('token', data.token); // ✅ match AppContext
-        // setToken(data.token);
         toast.success('Admin login successful!');
         navigate('/admin-dashboard');
       } else { 

@@ -66,26 +66,26 @@ const Testimonials = () => {
             </svg>
             Trusted by Professionals
           </div>
-          
+
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6">
             What Our Community Says
           </h2>
           <p className="text-[17px] text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Join thousands of mental health professionals, students, and individuals who have 
+            Join thousands of mental health professionals, students, and individuals who have
             transformed their wellness journey with NeuroDiary's AI-powered platform.
           </p>
         </div>
 
         {/* Main Testimonial Display */}
-        <div className="relative mb-16" 
-             onMouseEnter={() => setIsAutoPlaying(false)}
-             onMouseLeave={() => setIsAutoPlaying(true)}>
-          
+        <div className="relative mb-16"
+          onMouseEnter={() => setIsAutoPlaying(false)}
+          onMouseLeave={() => setIsAutoPlaying(true)}>
+
           <div className="bg-white/70 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/50 overflow-hidden max-w-3xl mx-auto">
             <div className="relative p-10 md:p-12">
               {/* Quote Background */}
               <div className="absolute top-6 left-8 text-8xl text-teal-200/30 font-serif">"</div>
-              
+
               <div className="relative z-10">
                 {/* Rating Stars */}
                 <div className="flex justify-center gap-1 mb-6">
@@ -104,9 +104,9 @@ const Testimonials = () => {
                 {/* User Info */}
                 <div className="flex flex-col md:flex-row items-center justify-center gap-6">
                   <div className="relative">
-                    <img 
-                      src={testimonials[currentIndex].image} 
-                      alt={testimonials[currentIndex].name} 
+                    <img
+                      src={testimonials[currentIndex].image}
+                      alt={testimonials[currentIndex].name}
                       className="w-20 h-20 rounded-full border-4 border-white shadow-xl object-cover"
                     />
                     <div className="absolute -bottom-2 -right-1 w-6 h-6 bg-gradient-to-r from-teal-400 to-blue-500 rounded-full flex items-center justify-center">
@@ -115,7 +115,7 @@ const Testimonials = () => {
                       </svg>
                     </div>
                   </div>
-                  
+
                   <div className="text-center md:text-left">
                     <h4 className="text-xl font-bold text-slate-800 mb-1">{testimonials[currentIndex].name}</h4>
                     <p className="text-teal-600 font-semibold mb-1">{testimonials[currentIndex].title}</p>
@@ -130,7 +130,7 @@ const Testimonials = () => {
           </div>
 
           {/* Navigation Arrows */}
-          <button 
+          <button
             onClick={prevTestimonial}
             className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-200 flex items-center justify-center group"
           >
@@ -138,8 +138,8 @@ const Testimonials = () => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
-          
-          <button 
+
+          <button
             onClick={nextTestimonial}
             className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 backdrop-blur-sm rounded-full shadow-lg hover:bg-white hover:scale-110 transition-all duration-200 flex items-center justify-center group"
           >
@@ -155,11 +155,10 @@ const Testimonials = () => {
             <button
               key={index}
               onClick={() => goToTestimonial(index)}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                index === currentIndex 
-                  ? 'bg-gradient-to-r from-teal-400 to-blue-500 w-8' 
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentIndex
+                  ? 'bg-gradient-to-r from-teal-400 to-blue-500 w-8'
                   : 'bg-slate-300 hover:bg-slate-400'
-              }`}
+                }`}
             />
           ))}
         </div>
@@ -169,16 +168,15 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className={`group bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${
-                index === currentIndex ? 'ring-2 ring-teal-400 ring-opacity-50' : ''
-              }`}
+              className={`group bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/50 hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer ${index === currentIndex ? 'ring-2 ring-teal-400 ring-opacity-50' : ''
+                }`}
               onClick={() => goToTestimonial(index)}
             >
               {/* Mini Profile */}
               <div className="flex items-center gap-4 mb-4">
-                <img 
-                  src={testimonial.image} 
-                  alt={testimonial.name} 
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
                   className="w-12 h-12 rounded-full border-2 border-white shadow-lg object-cover"
                 />
                 <div>
@@ -219,7 +217,7 @@ const Testimonials = () => {
             <h3 className="text-2xl font-bold mb-3">Trusted by Mental Health Professionals</h3>
             <p className="text-blue-100 text-[17px]">Join our growing community of wellness advocates</p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-3xl font-bold mb-2">50K+</div>
@@ -245,4 +243,3 @@ const Testimonials = () => {
 };
 
 export default Testimonials;
-   

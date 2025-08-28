@@ -453,7 +453,7 @@ const About = () => {
                 <div className="relative">
                   <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-2xl transform rotate-3 opacity-20"></div>
                   <img
-                    src={assets.contact_image}
+                    src={assets.person}
                     alt="NeuroDiary Platform"
                     className="relative w-80 h-80 object-cover rounded-2xl shadow-2xl transform -rotate-1 hover:rotate-0 transition-transform duration-300"
                   />
@@ -512,7 +512,7 @@ const About = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-teal-400 to-cyan-500 rounded-2xl transform -rotate-2 opacity-20"></div>
                 <img
-                  src={assets.about_image}
+                  src={assets.selfcare}
                   alt="Why Choose NeuroDiary"
                   className="relative w-full h-110 object-cover rounded-2xl shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-300"
                 />

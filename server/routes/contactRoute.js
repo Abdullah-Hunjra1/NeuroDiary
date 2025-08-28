@@ -1,5 +1,3 @@
-// server/routes/contactRoute.js
-
 import express from 'express';
 import { contactForm } from '../controllers/contactController.js';
 

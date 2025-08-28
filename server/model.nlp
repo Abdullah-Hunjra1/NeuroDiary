@@ -43,19 +43,85 @@
             "intent": "create.diary",
             "domain": "default"
           },
+          "entri,new": {
+            "intent": "create.diary",
+            "domain": "default"
+          },
+          "journal,start": {
+            "intent": "create.diary",
+            "domain": "default"
+          },
           "entri,last,my,show": {
+            "intent": "read.last",
+            "domain": "default"
+          },
+          "entri,last,read": {
+            "intent": "read.last",
+            "domain": "default"
+          },
+          "did,i,last,what,write": {
             "intent": "read.last",
             "domain": "default"
           },
           "last,mood,my,was,week,what": {
             "intent": "mood.summary",
             "domain": "default"
+          },
+          "mood,show,trend": {
+            "intent": "mood.summary",
+            "domain": "default"
+          },
+          "analysi,mood": {
+            "intent": "mood.summary",
+            "domain": "default"
+          },
+          "been,feel,have,how,i": {
+            "intent": "mood.summary",
+            "domain": "default"
+          },
+          "chart,mood": {
+            "intent": "mood.summary",
+            "domain": "default"
+          },
+          "mood,statist": {
+            "intent": "mood.summary",
+            "domain": "default"
+          },
+          "give,me,recommend": {
+            "intent": "recommendations",
+            "domain": "default"
+          },
+          "do,i,should,what": {
+            "intent": "recommendations",
+            "domain": "default"
+          },
+          "tip,well": {
+            "intent": "recommendations",
+            "domain": "default"
+          },
+          "advic,care,self": {
+            "intent": "recommendations",
+            "domain": "default"
+          },
+          "analyz,my,sentiment": {
+            "intent": "sentiment.analyze",
+            "domain": "default"
+          },
+          "am,feel,how,i": {
+            "intent": "sentiment.analyze",
+            "domain": "default"
+          },
+          "current,is,mood,my,what": {
+            "intent": "sentiment.analyze",
+            "domain": "default"
           }
         },
         "intentDict": {
           "create.diary": "default",
           "read.last": "default",
-          "mood.summary": "default"
+          "mood.summary": "default",
+          "recommendations": "default",
+          "sentiment.analyze": "default"
         },
         "sentences": [
           {
@@ -70,13 +136,93 @@
           },
           {
             "domain": "default",
+            "utterance": "new entry",
+            "intent": "create.diary"
+          },
+          {
+            "domain": "default",
+            "utterance": "start journaling",
+            "intent": "create.diary"
+          },
+          {
+            "domain": "default",
             "utterance": "show my last entry",
+            "intent": "read.last"
+          },
+          {
+            "domain": "default",
+            "utterance": "read last entry",
+            "intent": "read.last"
+          },
+          {
+            "domain": "default",
+            "utterance": "what did I write last",
             "intent": "read.last"
           },
           {
             "domain": "default",
             "utterance": "what was my mood last week",
             "intent": "mood.summary"
+          },
+          {
+            "domain": "default",
+            "utterance": "show mood trends",
+            "intent": "mood.summary"
+          },
+          {
+            "domain": "default",
+            "utterance": "mood analysis",
+            "intent": "mood.summary"
+          },
+          {
+            "domain": "default",
+            "utterance": "how have I been feeling",
+            "intent": "mood.summary"
+          },
+          {
+            "domain": "default",
+            "utterance": "mood chart",
+            "intent": "mood.summary"
+          },
+          {
+            "domain": "default",
+            "utterance": "mood statistics",
+            "intent": "mood.summary"
+          },
+          {
+            "domain": "default",
+            "utterance": "give me recommendations",
+            "intent": "recommendations"
+          },
+          {
+            "domain": "default",
+            "utterance": "what should I do",
+            "intent": "recommendations"
+          },
+          {
+            "domain": "default",
+            "utterance": "wellness tips",
+            "intent": "recommendations"
+          },
+          {
+            "domain": "default",
+            "utterance": "self care advice",
+            "intent": "recommendations"
+          },
+          {
+            "domain": "default",
+            "utterance": "analyze my sentiment",
+            "intent": "sentiment.analyze"
+          },
+          {
+            "domain": "default",
+            "utterance": "how am I feeling",
+            "intent": "sentiment.analyze"
+          },
+          {
+            "domain": "default",
+            "utterance": "what is my current mood",
+            "intent": "sentiment.analyze"
           }
         ],
         "domains": {
@@ -98,19 +244,49 @@
               "new": 1,
               "diari": 1,
               "write": 1,
+              "entri": 1,
+              "start": 1,
+              "journal": 1,
               "show": 1,
               "my": 1,
               "last": 1,
-              "entri": 1,
+              "read": 1,
               "what": 1,
+              "did": 1,
+              "i": 1,
               "was": 1,
               "mood": 1,
-              "week": 1
+              "week": 1,
+              "trend": 1,
+              "analysi": 1,
+              "how": 1,
+              "have": 1,
+              "been": 1,
+              "feel": 1,
+              "chart": 1,
+              "statist": 1,
+              "give": 1,
+              "me": 1,
+              "recommend": 1,
+              "should": 1,
+              "do": 1,
+              "well": 1,
+              "tip": 1,
+              "self": 1,
+              "care": 1,
+              "advic": 1,
+              "analyz": 1,
+              "sentiment": 1,
+              "am": 1,
+              "is": 1,
+              "current": 1
             },
             "intents": {
               "create.diary": 1,
               "read.last": 1,
-              "mood.summary": 1
+              "mood.summary": 1,
+              "recommendations": 1,
+              "sentiment.analyze": 1
             },
             "intentFeatures": {
               "create.diary": {
@@ -118,13 +294,21 @@
                 "a": 1,
                 "new": 1,
                 "diari": 1,
-                "write": 1
+                "write": 1,
+                "entri": 1,
+                "start": 1,
+                "journal": 1
               },
               "read.last": {
                 "show": 1,
                 "my": 1,
                 "last": 1,
-                "entri": 1
+                "entri": 1,
+                "read": 1,
+                "what": 1,
+                "did": 1,
+                "i": 1,
+                "write": 1
               },
               "mood.summary": {
                 "what": 1,
@@ -132,7 +316,44 @@
                 "my": 1,
                 "mood": 1,
                 "last": 1,
-                "week": 1
+                "week": 1,
+                "show": 1,
+                "trend": 1,
+                "analysi": 1,
+                "how": 1,
+                "have": 1,
+                "i": 1,
+                "been": 1,
+                "feel": 1,
+                "chart": 1,
+                "statist": 1
+              },
+              "recommendations": {
+                "give": 1,
+                "me": 1,
+                "recommend": 1,
+                "what": 1,
+                "should": 1,
+                "i": 1,
+                "do": 1,
+                "well": 1,
+                "tip": 1,
+                "self": 1,
+                "care": 1,
+                "advic": 1
+              },
+              "sentiment.analyze": {
+                "analyz": 1,
+                "my": 1,
+                "sentiment": 1,
+                "how": 1,
+                "am": 1,
+                "i": 1,
+                "feel": 1,
+                "what": 1,
+                "is": 1,
+                "current": 1,
+                "mood": 1
               }
             },
             "featuresToIntent": {
@@ -149,33 +370,130 @@
                 "create.diary"
               ],
               "write": [
+                "create.diary",
+                "read.last"
+              ],
+              "entri": [
+                "create.diary",
+                "read.last"
+              ],
+              "start": [
+                "create.diary"
+              ],
+              "journal": [
                 "create.diary"
               ],
               "show": [
-                "read.last"
+                "read.last",
+                "mood.summary"
               ],
               "my": [
                 "read.last",
-                "mood.summary"
+                "mood.summary",
+                "sentiment.analyze"
               ],
               "last": [
                 "read.last",
                 "mood.summary"
               ],
-              "entri": [
+              "read": [
                 "read.last"
               ],
               "what": [
-                "mood.summary"
+                "read.last",
+                "mood.summary",
+                "recommendations",
+                "sentiment.analyze"
+              ],
+              "did": [
+                "read.last"
+              ],
+              "i": [
+                "read.last",
+                "mood.summary",
+                "recommendations",
+                "sentiment.analyze"
               ],
               "was": [
                 "mood.summary"
               ],
               "mood": [
-                "mood.summary"
+                "mood.summary",
+                "sentiment.analyze"
               ],
               "week": [
                 "mood.summary"
+              ],
+              "trend": [
+                "mood.summary"
+              ],
+              "analysi": [
+                "mood.summary"
+              ],
+              "how": [
+                "mood.summary",
+                "sentiment.analyze"
+              ],
+              "have": [
+                "mood.summary"
+              ],
+              "been": [
+                "mood.summary"
+              ],
+              "feel": [
+                "mood.summary",
+                "sentiment.analyze"
+              ],
+              "chart": [
+                "mood.summary"
+              ],
+              "statist": [
+                "mood.summary"
+              ],
+              "give": [
+                "recommendations"
+              ],
+              "me": [
+                "recommendations"
+              ],
+              "recommend": [
+                "recommendations"
+              ],
+              "should": [
+                "recommendations"
+              ],
+              "do": [
+                "recommendations"
+              ],
+              "well": [
+                "recommendations"
+              ],
+              "tip": [
+                "recommendations"
+              ],
+              "self": [
+                "recommendations"
+              ],
+              "care": [
+                "recommendations"
+              ],
+              "advic": [
+                "recommendations"
+              ],
+              "analyz": [
+                "sentiment.analyze"
+              ],
+              "sentiment": [
+                "sentiment.analyze"
+              ],
+              "am": [
+                "sentiment.analyze"
+              ],
+              "is": [
+                "sentiment.analyze"
+              ],
+              "current": [
+                "sentiment.analyze"
               ]
             },
             "neuralNetwork": {
@@ -196,68 +514,270 @@
                 "new",
                 "diari",
                 "write",
+                "entri",
+                "start",
+                "journal",
                 "show",
                 "my",
                 "last",
-                "entri",
+                "read",
                 "what",
+                "did",
+                "i",
                 "was",
                 "mood",
-                "week"
+                "week",
+                "trend",
+                "analysi",
+                "how",
+                "have",
+                "been",
+                "feel",
+                "chart",
+                "statist",
+                "give",
+                "me",
+                "recommend",
+                "should",
+                "do",
+                "well",
+                "tip",
+                "self",
+                "care",
+                "advic",
+                "analyz",
+                "sentiment",
+                "am",
+                "is",
+                "current"
               ],
               "intents": [
                 "create.diary",
                 "read.last",
-                "mood.summary"
+                "mood.summary",
+                "recommendations",
+                "sentiment.analyze"
               ],
               "perceptrons": [
                 [
-                  1.710065484046936,
-                  1.710065484046936,
-                  1.710065484046936,
-                  6.466856479644775,
-                  4.754664897918701,
-                  -0.5386979579925537,
-                  -0.8615909218788147,
-                  -0.8615909218788147,
-                  -0.5386979579925537,
-                  -0.2990042567253113,
-                  -0.2990042567253113,
-                  -0.2990042567253113,
-                  -0.2990042567253113,
-                  2.8091811962269015
+                  -0.42863336205482483,
+                  -0.42863336205482483,
+                  6.66754674911499,
+                  5.639875888824463,
+                  5.153781414031982,
+                  3.8485426902770996,
+                  5.551907062530518,
+                  5.551907062530518,
+                  -1.1483967304229736,
+                  -1.6478571891784668,
+                  -4.323914527893066,
+                  -2.4694697856903076,
+                  -1.2728009223937988,
+                  -0.9481656551361084,
+                  -1.7731438875198364,
+                  -0.0380423404276371,
+                  -2.488654375076294,
+                  -0.0380423404276371,
+                  -0.2991725206375122,
+                  -0.6973001956939697,
+                  -0.581572949886322,
+                  -0.31773048639297485,
+                  -0.31773048639297485,
+                  -0.581572949886322,
+                  -0.6807036399841309,
+                  -0.6650803089141846,
+                  -1.054267406463623,
+                  -1.054267406463623,
+                  -1.054267406463623,
+                  -0.22843818366527557,
+                  -0.22843818366527557,
+                  -1.5656206607818604,
+                  -1.5656206607818604,
+                  -1.0526461601257324,
+                  -1.0526461601257324,
+                  -1.0526461601257324,
+                  -0.7544296979904175,
+                  -0.7544296979904175,
+                  -0.23267319798469543,
+                  -0.003667468437924981,
+                  -0.003667468437924981,
+                  3.1735171710017664
                 ],
                 [
-                  -0.1850939393043518,
-                  -0.1850939393043518,
-                  -0.1850939393043518,
-                  -0.5814988017082214,
-                  -0.38122230768203735,
-                  4.107904434204102,
-                  2.5525882244110107,
-                  2.5525882244110107,
-                  4.107904434204102,
-                  -1.528070330619812,
-                  -1.528070330619812,
-                  -1.528070330619812,
-                  -1.528070330619812,
-                  0.9825492546932477
+                  -0.08610454946756363,
+                  -0.08610454946756363,
+                  -3.171581745147705,
+                  -1.6263110637664795,
+                  1.8354829549789429,
+                  3.5261850357055664,
+                  -0.1312498152256012,
+                  -0.1312498152256012,
+                  2.968078374862671,
+                  0.4280313551425934,
+                  7.554358959197998,
+                  3.3772222995758057,
+                  -0.008298308588564396,
+                  3.352829694747925,
+                  1.7718149423599243,
+                  -2.4015884399414062,
+                  -2.9406118392944336,
+                  -2.4015884399414062,
+                  -0.22585251927375793,
+                  -0.06132540479302406,
+                  -0.7060789465904236,
+                  -0.32343578338623047,
+                  -0.32343578338623047,
+                  -0.7060789465904236,
+                  -0.04214858636260033,
+                  -0.033946163952350616,
+                  -0.2050112634897232,
+                  -0.2050112634897232,
+                  -0.2050112634897232,
+                  -0.8616988658905029,
+                  -0.8616988658905029,
+                  -0.23952916264533997,
+                  -0.23952916264533997,
+                  -0.1939394474029541,
+                  -0.1939394474029541,
+                  -0.1939394474029541,
+                  -0.2761130928993225,
+                  -0.2761130928993225,
+                  -0.32677945494651794,
+                  -0.05882994085550308,
+                  -0.05882994085550308,
+                  -0.2186040517205098
                 ],
                 [
-                  -0.14510191977024078,
-                  -0.14510191977024078,
-                  -0.14510191977024078,
-                  -0.37104377150535583,
-                  -0.19483333826065063,
-                  -1.5195157527923584,
-                  1.275048851966858,
-                  1.275048851966858,
-                  -1.5195157527923584,
-                  2.822406053543091,
-                  2.822406053543091,
-                  2.822406053543091,
-                  2.822406053543091,
-                  0.444968505752655
+                  -0.2927100360393524,
+                  -0.2927100360393524,
+                  -0.6092274785041809,
+                  -0.8019112348556519,
+                  -0.8508970141410828,
+                  -1.928541660308838,
+                  -0.823695957660675,
+                  -0.823695957660675,
+                  0.9787490367889404,
+                  -2.1955759525299072,
+                  0.9655871391296387,
+                  -0.6865009069442749,
+                  -1.8704971075057983,
+                  -0.3504117429256439,
+                  0.0013905512169003487,
+                  2.983038902282715,
+                  9.773017883300781,
+                  2.983038902282715,
+                  1.9244418144226074,
+                  2.9181602001190186,
+                  1.178773045539856,
+                  5.097832202911377,
+                  5.097832202911377,
+                  1.178773045539856,
+                  2.837303400039673,
+                  2.785830497741699,
+                  -0.7019689679145813,
+                  -0.7019689679145813,
+                  -0.7019689679145813,
+                  -0.6615691781044006,
+                  -0.6615691781044006,
+                  -0.8929333090782166,
+                  -0.8929333090782166,
+                  -0.6500126719474792,
+                  -0.6500126719474792,
+                  -0.6500126719474792,
+                  -0.46528133749961853,
+                  -0.46528133749961853,
+                  -3.9215612411499023,
+                  -3.675799608230591,
+                  -3.675799608230591,
+                  1.6491260473845883
+                ],
+                [
+                  -0.5316712856292725,
+                  -0.5316712856292725,
+                  -1.6131062507629395,
+                  -1.2253865003585815,
+                  -2.2181882858276367,
+                  -1.5164388418197632,
+                  -1.5620790719985962,
+                  -1.5620790719985962,
+                  -0.4690515697002411,
+                  -1.7332617044448853,
+                  -2.1918318271636963,
+                  -0.321005254983902,
+                  1.7869329452514648,
+                  -1.5434428453445435,
+                  1.02488374710083,
+                  -0.1397220641374588,
+                  -2.6660351753234863,
+                  -0.1397220641374588,
+                  -0.33645132184028625,
+                  -0.5184467434883118,
+                  -1.5954796075820923,
+                  -0.5084266066551208,
+                  -0.5084266066551208,
+                  -1.5954796075820923,
+                  -0.47721248865127563,
+                  -0.46142128109931946,
+                  3.7181756496429443,
+                  3.7181756496429443,
+                  3.7181756496429443,
+                  4.1721038818359375,
+                  4.1721038818359375,
+                  5.571042060852051,
+                  5.571042060852051,
+                  3.718050956726074,
+                  3.718050956726074,
+                  3.718050956726074,
+                  -0.7552511096000671,
+                  -0.7552511096000671,
+                  -1.0608055591583252,
+                  -0.6261307597160339,
+                  -0.6261307597160339,
+                  3.131172770678277
+                ],
+                [
+                  -0.23337723314762115,
+                  -0.23337723314762115,
+                  -0.48759597539901733,
+                  -0.5293245315551758,
+                  -0.7390428185462952,
+                  -1.3912512063980103,
+                  -0.49073323607444763,
+                  -0.49073323607444763,
+                  -1.4300646781921387,
+                  5.267789840698242,
+                  -3.3085079193115234,
+                  -0.057216838002204895,
+                  0.5280160307884216,
+                  -0.4154255986213684,
+                  1.1159807443618774,
+                  -1.6558218002319336,
+                  -0.16573861241340637,
+                  -1.6558218002319336,
+                  -0.3010937571525574,
+                  -0.7386391162872314,
+                  2.8239192962646484,
+                  -3.732783317565918,
+                  -3.732783317565918,
+                  2.8239192962646484,
+                  -0.6534485220909119,
+                  -0.6397802233695984,
+                  -0.2771579623222351,
+                  -0.2771579623222351,
+                  -0.2771579623222351,
+                  -1.2214288711547852,
+                  -1.2214288711547852,
+                  -0.40812116861343384,
+                  -0.40812116861343384,
+                  -0.2735762894153595,
+                  -0.2735762894153595,
+                  -0.2735762894153595,
+                  4.104924201965332,
+                  4.104924201965332,
+                  6.559947967529297,
+                  3.906844139099121,
+                  3.906844139099121,
+                  0.8285690490150466
                 ]
               ]
             }
@@ -277,11 +797,75 @@
       ],
       [
         "en",
+        "new entry"
+      ],
+      [
+        "en",
+        "start journaling"
+      ],
+      [
+        "en",
         "show my last entry"
       ],
       [
         "en",
+        "read last entry"
+      ],
+      [
+        "en",
+        "what did I write last"
+      ],
+      [
+        "en",
         "what was my mood last week"
+      ],
+      [
+        "en",
+        "show mood trends"
+      ],
+      [
+        "en",
+        "mood analysis"
+      ],
+      [
+        "en",
+        "how have I been feeling"
+      ],
+      [
+        "en",
+        "mood chart"
+      ],
+      [
+        "en",
+        "mood statistics"
+      ],
+      [
+        "en",
+        "give me recommendations"
+      ],
+      [
+        "en",
+        "what should I do"
+      ],
+      [
+        "en",
+        "wellness tips"
+      ],
+      [
+        "en",
+        "self care advice"
+      ],
+      [
+        "en",
+        "analyze my sentiment"
+      ],
+      [
+        "en",
+        "how am I feeling"
+      ],
+      [
+        "en",
+        "what is my current mood"
       ]
     ]
   },
@@ -312,6 +896,16 @@
         "mood.summary": [
           {
             "answer": "Analyzing your recent moods..."
+          }
+        ],
+        "sentiment.analyze": [
+          {
+            "answer": "Let me analyze your current emotional state..."
+          }
+        ],
+        "recommendations": [
+          {
+            "answer": "Generating personalized recommendations..."
           }
         ]
       }

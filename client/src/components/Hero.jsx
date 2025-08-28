@@ -1,38 +1,3 @@
-// import React from 'react'
-// import { assets } from '../assets/assets';
-
-
-// const Hero = () => (
-//   <section className="bg-[#CEE6F0] py-20 px-6 md:px-16 flex flex-col md:flex-row items-center justify-between gap-10">
-//     <div className="md:w-1/2 text-center md:text-left">
-//       <h1 className="text-4xl md:text-5xl font-bold text-[#007189] leading-tight mb-4">
-//         Your AI-Powered Mental Health Companion
-//       </h1>
-//       <p className="text-gray-700 text-lg mb-6">
-//         NeuroDiary helps you track your mood, reflect daily, and gain emotional insights through intelligent journaling.
-//       </p>
-//       <div className="flex gap-4 justify-center md:justify-start">
-//         <button className="bg-[#007189] text-white px-6 py-3 rounded-full font-medium">
-//           Start Journaling
-//         </button>
-//         <button className="bg-white border border-[#007189] text-[#007189] px-6 py-3 rounded-full font-medium">
-//           Learn More
-//         </button>
-//       </div>
-//     </div>
-//     <div className="md:w-1/2">
-//       <img src={assets.header_img} alt="AI Journaling" className="w-full max-w-md mx-auto" />
-//     </div>
-//   </section>
-// );
-
-// export default Hero
-
-
-
-
-
-
 import React from 'react';
 import { assets } from '../assets/assets';
 
@@ -93,9 +58,9 @@ const Hero = () => (
         {/* Feature Highlights */}
         <div className="flex flex-wrap gap-4 justify-center lg:justify-start text-sm">
           {[
-            { icon: "🧠", text: "AI-Powered Insights" },
-            { icon: "🔒", text: "100% Private & Secure" },
-            { icon: "📱", text: "Available 24/7" }
+            {  text: "AI-Powered Insights" },
+            {  text: "100% Private & Secure" },
+            {  text: "Available 24/7" }
           ].map((feature, index) => (
             <div key={index} className="flex items-center gap-2 bg-white/70 backdrop-blur-sm px-4 py-2 rounded-full shadow-md border border-white/50">
               <span className="text-lg">{feature.icon}</span>
@@ -125,37 +90,6 @@ const Hero = () => (
             </div>
           </button>
         </div>
-
-        {/* Trust Indicators */}
-        {/* <div className="pt-8 border-t border-slate-200/50">
-          <p className="text-sm text-slate-500 mb-4 font-medium">Trusted by mental health professionals</p>
-          <div className="flex items-center gap-8 opacity-60">
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-slate-600">HIPAA Compliant</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-lg flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-slate-600">End-to-End Encrypted</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-indigo-400 to-purple-500 rounded-lg flex items-center justify-center">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                </svg>
-              </div>
-              <span className="text-sm font-medium text-slate-600">5-Star Rated</span>
-            </div>
-          </div>
-        </div> */}
       </div>
 
       {/* Right Content - Image */}
@@ -169,7 +103,7 @@ const Hero = () => (
           <div className="relative bg-white/20 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/30 transform hover:scale-105 transition-transform duration-500">
             <div className="relative overflow-hidden rounded-2xl">
               <img
-                src={assets.header_img}
+                src={assets.hero}
                 alt="AI Journaling Interface"
                 className="w-full max-w-md mx-auto object-contain filter drop-shadow-2xl"
               />

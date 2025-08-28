@@ -1,19 +1,15 @@
-// ✅ Mood Chart UI — React + Tailwind + Recharts
-// This file assumes Tailwind is already configured
-// and the token is stored in localStorage
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import { toast } from 'react-toastify';
 
 const moodColors = {
-    Happy: '#10B981',      // Emerald
-    Sad: '#3B82F6',        // Blue
-    Anxious: '#F59E0B',    // Amber
-    Angry: '#EF4444',      // Red
-    Neutral: '#6B7280',    // Gray
-    Grateful: '#8B5CF6'    // Violet
+    Happy: '#10B981',      
+    Sad: '#3B82F6',        
+    Anxious: '#F59E0B',    
+    Angry: '#EF4444',      
+    Neutral: '#6B7280',    
+    Grateful: '#8B5CF6' 
 };
 
 const MoodChart = () => {
@@ -43,7 +39,7 @@ const MoodChart = () => {
 
     useEffect(() => {
         const token = localStorage.getItem('token');
-        if (!token) return; // ✅ avoid fetch if not logged in
+        if (!token) return; 
         fetchMoodStats();
     }, []);
 

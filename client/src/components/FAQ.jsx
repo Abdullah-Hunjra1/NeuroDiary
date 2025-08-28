@@ -45,12 +45,12 @@ const FAQ = () => {
             </svg>
             Common Questions
           </div>
-          
+
           <h2 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-teal-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-4">
             Frequently Asked Questions
           </h2>
           <p className="text-[17px] text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            Everything you need to know about NeuroDiary, your AI-powered mental health companion. 
+            Everything you need to know about NeuroDiary, your AI-powered mental health companion.
             Can't find what you're looking for? Feel free to contact our support team.
           </p>
         </div>
@@ -79,7 +79,7 @@ const FAQ = () => {
                     <p className="text-slate-500 text-sm">Click to expand answer</p>
                   </div>
                 </div>
-                
+
                 <div className={`transform transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
                   <svg className="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
@@ -87,9 +87,8 @@ const FAQ = () => {
                 </div>
               </button>
 
-              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-              }`}>
+              <div className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}>
                 <div className="px-8 pb-8">
                   <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-xl p-6 border-l-4 border-teal-400">
                     <p className="text-slate-700 leading-relaxed text-[16px]">
@@ -101,46 +100,6 @@ const FAQ = () => {
             </div>
           ))}
         </div>
-
-        {/* Contact Support Section */}
-        {/* <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-teal-500 via-blue-500 to-indigo-600 rounded-3xl p-12 text-white">
-            <div className="max-w-3xl mx-auto">
-              <div className="w-20 h-20 bg-white/20 backdrop-blur-sm rounded-3xl flex items-center justify-center mx-auto mb-6">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 110 19.5 9.75 9.75 0 010-19.5z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6l4 2" />
-                </svg>
-              </div>
-              
-              <h3 className="text-3xl font-bold mb-4">Still have questions?</h3>
-              <p className="text-blue-100 text-lg mb-8 leading-relaxed">
-                Our dedicated support team is here to help you on your mental health journey. 
-                We typically respond within 24 hours.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="bg-white text-blue-600 px-8 py-4 rounded-2xl font-bold hover:bg-blue-50 transition-colors duration-200 transform hover:scale-105 shadow-lg">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                    Contact Support
-                  </div>
-                </button>
-                
-                <button className="bg-white/20 backdrop-blur-sm border border-white/30 text-white px-8 py-4 rounded-2xl font-bold hover:bg-white/30 transition-colors duration-200 transform hover:scale-105">
-                  <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                    View Documentation
-                  </div>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
     </section>
   );
