@@ -25,4 +25,8 @@ dist-ssr
 
 
 
-.env 
+# Ignore all environment files
+client/.env
+client/.env.*
+server/.env
+server/.env.*
