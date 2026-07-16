@@ -1,4 +1,4 @@
-import header_img from './header_img.png'
+// import header_img from './header_img.png'
 import profile_pic from './profile_pic.png'
 import abd from './abd.jpg'
 import contact_image from './contact_image.png'
@@ -14,7 +14,7 @@ import hero from './hero.jpg'
 
 
 export const assets = {
-    header_img,
+    // header_img,
     logo,
     profile_pic,
     abd,
