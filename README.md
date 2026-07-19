@@ -40,12 +40,6 @@
 
 ---
 
-## 🌐 Live demo section
-
-. https://neuro-diary-frontend.vercel.app/
-
----
-
 ## 📸 Screenshots
 
 > 
