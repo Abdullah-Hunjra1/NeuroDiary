@@ -1,4 +1,5 @@
 # NeuroDiary
+[🌐  Live Demo NeuroDiary](https://neuro-diary-frontend.vercel.app/) 
 
 **NeuroDiary** is an AI-powered digital diary designed to help users capture their daily thoughts, track their moods, and gain meaningful insights through AI-driven sentiment analysis. It combines journaling with intelligent features to promote self-reflection and mental well-being.
 
