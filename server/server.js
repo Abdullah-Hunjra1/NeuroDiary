@@ -1,62 +1,53 @@
-import express from 'express';
-import cors from 'cors';
-import 'dotenv/config';
-import connectDB from './config/mongodb.js';
-import connectCloudinary from './config/cloudinary.js';
-import userRouter from './routes/userRoute.js';
-import diaryRouter from './routes/diaryRoute.js';
-import paymentRouter from './routes/paymentRoute.js';
-import recommendationRouter from './routes/recommendationRoute.js';
-import contactRouter from './routes/contactRoute.js';
-import statsRouter from './routes/statsRoute.js';
-import insightsRouter from './routes/insightsRoute.js';
-import voiceRouter from './routes/voiceRoute.js';
+import express from "express";
+import cors from "cors";
+import "dotenv/config";
 
-import Stripe from 'stripe';
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+import connectDB from "./config/mongodb.js";
+import connectCloudinary from "./config/cloudinary.js";
 
-// Admin
-import adminRouter from './routes/adminRoute.js';
+import userRouter from "./routes/userRoute.js";
+import diaryRouter from "./routes/diaryRoute.js";
+import paymentRouter from "./routes/paymentRoute.js";
+import recommendationRouter from "./routes/recommendationRoute.js";
+import contactRouter from "./routes/contactRoute.js";
+import statsRouter from "./routes/statsRoute.js";
+import insightsRouter from "./routes/insightsRoute.js";
+import voiceRouter from "./routes/voiceRoute.js";
+import adminRouter from "./routes/adminRoute.js";
 
-//app config
 const app = express();
-const port = process.env.PORT || 5000;
 
+// Connect services
 connectDB();
 connectCloudinary();
 
-// // ⚡ Important: Stripe webhook requires raw body, so we put this BEFORE express.json()
-// import bodyParser from "body-parser";
-// app.use(
-//   "/api/payment/webhook",
-//   bodyParser.raw({ type: "application/json" })
-// );
-
-//middleware
+// Middleware
 app.use(express.json());
+
 app.use(
   cors({
-    origin: "http://localhost:5173",
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: [
+      "http://localhost:5173",
+      process.env.FRONTEND_URL,
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   })
 );
 
-//api endpoints
-app.use('/api/payment', paymentRouter);
-app.use('/api/user', userRouter);
-app.use('/api/diary', diaryRouter);
-app.use('/api/recommendations', recommendationRouter);
-app.use('/api', contactRouter);
-app.use('/api/stats', statsRouter);
-app.use('/api/insights', insightsRouter);
-app.use('/api', voiceRouter);
+// Routes
+app.use("/api/payment", paymentRouter);
+app.use("/api/user", userRouter);
+app.use("/api/diary", diaryRouter);
+app.use("/api/recommendations", recommendationRouter);
+app.use("/api", contactRouter);
+app.use("/api/stats", statsRouter);
+app.use("/api/insights", insightsRouter);
+app.use("/api", voiceRouter);
+app.use("/api/admin", adminRouter);
 
-// Admin
-app.use('/api/admin', adminRouter);
-
-app.get('/', (req, res) => {
-  res.send('API WORKING');
+app.get("/", (req, res) => {
+  res.send("NeuroDiary API is working!");
 });
 
-app.listen(port, () => console.log("Server Started on port", port));
+export default app;
