@@ -21,7 +21,7 @@ class GroqProvider {
       }
 
       const defaultOptions = {
-        model: "llama3-70b-8192",
+        model: "llama-3.3-70b-versatile",
         max_tokens: 512,
         temperature: 0.7,
         top_p: 1,

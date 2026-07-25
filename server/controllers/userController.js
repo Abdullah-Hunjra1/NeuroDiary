@@ -53,55 +53,59 @@ const registerUser = async (req, res) => {
   }
 };
 
-//API for login user
+// API for login user
 const loginUser = async (req, res) => {
-
   try {
     const { email, password } = req.body;
+
     const user = await userModel.findOne({ email });
 
     if (!user) {
       return res.json({
         success: false,
-        message: "User does not exist"
-      })
+        message: "User does not exist",
+      });
     }
 
-    // Check if verified
+    // Check if user is verified
     if (!user.isVerified) {
-      return res.json({ success: false, message: "Please verify your email first" });
-    }
-
-    const isMatch = await bcrypt.compare(password, user.password);
-
-    if (isMatch) {
-      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
-      res.json({
-        success: true,
-        token,
-      })
-    } else {
       return res.json({
         success: false,
-        message: "Invalid credentials"
-      })
+        message: "Please verify your email first",
+      });
+    }
+
+    // Check password
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) {
+      return res.json({
+        success: false,
+        message: "Invalid credentials",
+      });
     }
 
     // Generate JWT
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d" });
-    res.json({ success: true, token });
+    const token = jwt.sign(
+      { id: user._id },
+      process.env.JWT_SECRET,
+      { expiresIn: "7d" }
+    );
 
-
-
+    return res.json({
+      success: true,
+      token,
+    });
 
   } catch (error) {
     console.log(error);
-    res.json({
+
+    return res.json({
       success: false,
-      message: error.message
-    })
+      message: error.message,
+    });
   }
-}
+};
 
 // Verify OTP
 export const verifyOTP = async (req, res) => {

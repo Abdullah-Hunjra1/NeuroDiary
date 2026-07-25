@@ -7,12 +7,32 @@ const createDiary = async (req, res) => {
     const { title, entry, mood } = req.body;
     const userId = req.user._id;
 
-    // ✅ 1. Analyze mood & sentiment
     const groqResponse = await groqProvider.generate({
-      prompt: `Analyze this diary entry and return in the exact format: Mood: <mood>, Score: <number>
-      
-      Entry:
-      ${entry}`
+      prompt: `Analyze this diary entry.
+
+Return ONLY in this exact format:
+Mood: <one mood from the allowed list>, Score: <number from 1 to 10>
+
+Allowed moods:
+Happy, Sad, Anxious, Angry, Neutral, Grateful, Excited, Calm, Stressed
+
+Score meaning:
+1 = extremely negative
+2 = very negative
+3 = negative
+4 = slightly negative
+5 = neutral
+6 = slightly positive
+7 = positive
+8 = very positive
+9 = extremely positive
+10 = exceptionally positive
+
+Choose the mood that best represents the overall emotional state of the entry.
+The score must ALWAYS be a whole number between 1 and 10.
+
+Entry:
+${entry}`
     }, { max_tokens: 300 });
 
     const aiResult = groqResponse.text;

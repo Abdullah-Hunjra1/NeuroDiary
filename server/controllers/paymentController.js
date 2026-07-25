@@ -45,33 +45,49 @@ export const webhookHandler = async (req, res) => {
   const sig = req.headers["stripe-signature"];
 
   let event;
+
   try {
     event = stripe.webhooks.constructEvent(
       req.body,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET
     );
+
+    console.log("🔥 STRIPE WEBHOOK RECEIVED:", event.type);
+
   } catch (err) {
-    console.error("Webhook signature error:", err.message);
+    console.error("❌ Webhook signature error:", err.message);
     return res.status(400).send(`Webhook Error: ${err.message}`);
   }
 
-  // ✅ Handle subscription activation
   if (event.type === "checkout.session.completed") {
     const session = event.data.object;
 
-    const userId = session.metadata.userId;
+    console.log("🔥 Checkout Session:", session.id);
+    console.log("🔥 Metadata:", session.metadata);
+
+    const userId = session.metadata?.userId;
+
     if (userId) {
-      await userModel.findByIdAndUpdate(userId, { isPremium: true });
-      console.log(`✅ User ${userId} upgraded to Premium`);
+      const updatedUser = await userModel.findByIdAndUpdate(
+        userId,
+        { isPremium: true },
+        { new: true }
+      );
+
+      console.log(
+        "✅ User upgraded:",
+        updatedUser?._id,
+        updatedUser?.isPremium
+      );
+    } else {
+      console.log("❌ No userId found in Stripe metadata");
     }
   }
 
   res.json({ received: true });
 };
 
-
-// ✅ Verify Checkout Session from frontend
 export const verifyCheckoutSession = async (req, res) => {
   try {
     const { session_id } = req.query;

@@ -92,7 +92,7 @@ export const queryInsight = async (req, res) => {
       return res.status(400).json({ error: 'Question is required' });
     }
 
-    const entries = await Diary.find({ user: userId })
+    const entries = await Diary.find({ userId: userId })
       .sort({ createdAt: -1 })
       .limit(20)
       .select('createdAt mood entry')

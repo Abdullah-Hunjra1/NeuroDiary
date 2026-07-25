@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
+// import { FaGooglePlusG, FaFacebookF, FaGithub, FaLinkedinIn } from 'react-icons/fa';
 import { AppContext } from '../../context/AppContext';
 import axios from 'axios';
 import { toast } from 'react-toastify';
@@ -86,8 +86,7 @@ const Login = () => {
         >
           <form onSubmit={onSubmitHandler} className="flex flex-col items-center justify-center h-full px-6 md:px-10">
             <h1 className="text-2xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Sign In</h1>
-            <SocialIcons />
-            <span className="text-sm mb-2 text-slate-600">or use your email password</span>
+            
             <input
               type="email"
               placeholder="Email"
@@ -124,8 +123,7 @@ const Login = () => {
         >
           <form onSubmit={onSubmitHandler} className="flex flex-col items-center justify-center h-full px-6 md:px-10">
             <h1 className="text-2xl font-bold mb-3 bg-gradient-to-r from-teal-600 to-cyan-600 bg-clip-text text-transparent">Create Account</h1>
-            <SocialIcons />
-            <span className="text-sm mb-2 text-slate-600">or use your email for registration</span>
+            
             <input
               type="text"
               placeholder="Name"

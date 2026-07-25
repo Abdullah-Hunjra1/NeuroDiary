@@ -15,41 +15,78 @@ const AppContextProvider = (props) => {
   const [loading, setLoading] = useState(true); // ✅ NEW
 
   const loadUserProfileData = async () => {
-    try {
-      if (!token) {
-        setUserData(false);
-        setLoading(false); // ✅ stop loading if no token
-        return;
-      }
-
-      // ✅ decode JWT payload
-      const decoded = JSON.parse(atob(token.split(".")[1]));
-      if (decoded.isAdmin) {
-        console.log("Admin logged in — skipping user profile call");
-        setLoading(false); // ✅ mark ready even for admin
-        return;
-      }
-
-      // ✅ normal user profile
-      const { data } = await axios.get(`${backendUrl}/api/user/get-profile`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-
-      if (data.success) {
-        setUserData(data.userData);
-      } else {
-        toast.error(data.message);
-      }
-    } catch (error) {
-      console.error(error);
-      const msg = error.response?.data?.message || error.message;
-      if (!msg.includes("Admin access only")) {
-        toast.error("Failed to load profile: " + msg);
-      }
-    } finally {
-      setLoading(false); // ✅ always end loading
+  try {
+    if (!token) {
+      setUserData(false);
+      setLoading(false);
+      return;
     }
-  };
+
+    // Check if token is a valid JWT before decoding
+    const tokenParts = token.split(".");
+
+    if (tokenParts.length !== 3) {
+      console.error("Invalid JWT token found in localStorage");
+
+      localStorage.removeItem("token");
+      setToken(false);
+      setUserData(false);
+      setLoading(false);
+
+      return;
+    }
+
+    // Decode JWT payload
+    const decoded = JSON.parse(atob(tokenParts[1]));
+
+    if (decoded.isAdmin) {
+      console.log("Admin logged in — skipping user profile call");
+      setLoading(false);
+      return;
+    }
+
+    // Normal user profile
+    const { data } = await axios.get(
+      `${backendUrl}/api/user/get-profile`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
+    if (data.success) {
+      setUserData(data.userData);
+    } else {
+      toast.error(data.message);
+    }
+
+  } catch (error) {
+    console.error("Profile Load Error:", error);
+
+    const msg =
+      error.response?.data?.message || error.message;
+
+    // If token is invalid or expired
+    if (
+      error.response?.status === 401 ||
+      msg.toLowerCase().includes("token") ||
+      msg.toLowerCase().includes("jwt")
+    ) {
+      localStorage.removeItem("token");
+      setToken(false);
+      setUserData(false);
+
+      toast.error("Session expired. Please login again.");
+    } else {
+      toast.error("Failed to load profile: " + msg);
+    }
+
+  } finally {
+    setLoading(false);
+  }
+}; 
+
 
   useEffect(() => {
     loadUserProfileData();

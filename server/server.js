@@ -25,12 +25,12 @@ const port = process.env.PORT || 5000;
 connectDB();
 connectCloudinary();
 
-// ⚡ Important: Stripe webhook requires raw body, so we put this BEFORE express.json()
-import bodyParser from "body-parser";
-app.use(
-  "/api/payment/webhook",
-  bodyParser.raw({ type: "application/json" })
-);
+// // ⚡ Important: Stripe webhook requires raw body, so we put this BEFORE express.json()
+// import bodyParser from "body-parser";
+// app.use(
+//   "/api/payment/webhook",
+//   bodyParser.raw({ type: "application/json" })
+// );
 
 //middleware
 app.use(express.json());
